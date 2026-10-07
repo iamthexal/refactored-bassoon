@@ -32,7 +32,7 @@
       "bio": {"pad":"30px 38px"}
     },
     "shou-satake": {"art":{"right":260,"top":60,"height":1000},"quoteTop":420,"bioTop":560,"bio":{"gap":16}},
-    "aoi-tsukino": {"art":{"right":250,"top":50,"height":1000},"quoteTop":458,"bioTop":560},
+    "aoi-tsukino": {"art":{"right":250,"top":50,"height":1000},"quoteTop":458,"bioTop":560,"vitalsTop":490},
     "etsuko-odoriba": {
       "art": {"right":150,"top":24,"height":1040},
       "quoteTop": 420,

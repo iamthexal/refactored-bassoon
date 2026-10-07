@@ -199,7 +199,7 @@ a{color:#ff4f00;}a:hover{color:#ff4f00;text-decoration-thickness:3px;}
     <div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:64px;line-height:1;padding:6px 26px 8px;box-shadow:10px 10px 0 #ff4f00;">WARDROBE</div>
   </div>
   <div data-anim="tabs" style="position:absolute;left:90px;right:90px;bottom:44px;display:flex;align-items:flex-end;gap:14px;z-index:2;">
-    <sc-for list="{{ c.outfits }}" as="o" hint-placeholder-count="0"><div onClick="{{ o.pick }}" role="button" tabindex="0" title="{{ o.name }}" style="flex:1 1 0;min-width:0;height:100px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;background:{{ o.tb }};color:{{ o.tc }};border:4px solid #fff;box-shadow:8px 8px 0 #000;transform:{{ o.tt }};cursor:pointer;transition:transform .15s,background .15s;"><div style="font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;transform:skewX(14deg);">{{ o.num }}</div><div style="font-family:'P5Menu',sans-serif;font-size:36px;line-height:1;transform:skewX(14deg);white-space:nowrap;">{{ o.name }}</div></div></sc-for>
+    <sc-for list="{{ c.outfits }}" as="o" hint-placeholder-count="0"><div onClick="{{ o.pick }}" role="button" tabindex="0" title="{{ o.name }}" style="flex:1 1 0;min-width:0;height:100px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;background:{{ o.tb }};color:{{ o.tc }};border:4px solid #fff;box-shadow:8px 8px 0 #000;transform:{{ o.tt }};opacity:{{ o.tOp }};cursor:{{ o.tCur }};transition:transform .15s,background .15s;"><div style="font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;transform:skewX(14deg);">{{ o.num }}</div><div style="font-family:'P5Menu',sans-serif;font-size:36px;line-height:1;transform:skewX(14deg);white-space:nowrap;">{{ o.name }}</div></div></sc-for>
   </div>
 </section>
 </sc-if>
@@ -354,11 +354,12 @@ class Component extends DCLogic {
             hasWardrobe: wd.length > 0, toWardrobe: go(wl), wLabel: wl, wScreen: pad(num) + 'b ' + c.display[0] + ' Outfits',
             wNum: pad(sel + 1), wTotal: '/ ' + pad(wd.length), wName: wd[sel]?.name || '',
             outfits: wd.map((o, i) => {
-              const on = i === sel, key = c.id + '-' + i;
-              return { key, src: o.src, name: o.name, alt: c.name + ' — ' + o.name, num: pad(i + 1), op: on ? 1 : 0,
+              const on = i === sel, key = c.id + '-' + i, off = !o.src;
+              return { key, src: o.src || undefined, name: o.name, alt: c.name + ' — ' + o.name, num: pad(i + 1), op: on && !off ? 1 : 0,
                 tb: on ? '#ff4f00' : '#000', tc: on ? '#000' : '#fff', tt: on ? 'skewX(-14deg) translateY(-24px) scale(1.06)' : 'skewX(-14deg)',
+                tOp: off ? 0.4 : 1, tCur: off ? 'default' : 'pointer',
                 pick: () => {
-                  if (sel === i) return;
+                  if (off || sel === i) return;
                   this.setState(s => ({ outfit: { ...(s.outfit || {}), [c.id]: i } }), () => {
                     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
                     document.querySelectorAll('[data-outfit="' + key + '"]').forEach(el => el.animate([{ translate: '140px 0', opacity: 0, filter: 'drop-shadow(14px 12px 0 #000) brightness(2.5)' }, { translate: '0 0', opacity: 1, filter: 'drop-shadow(14px 12px 0 #000) brightness(1)' }], { duration: 380, easing: 'cubic-bezier(.16,1.25,.3,1)' }));

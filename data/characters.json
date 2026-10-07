@@ -82,7 +82,16 @@
         {"label":"BLOOD TYPE","value":"A","rule":true},
         {"label":"BORN","value":"May 21, 1983 · Tokyo, Japan","wide":true}
       ],
-      "vitals": {"gender":"Female","pronouns":"She/Her","sexuality":"Straight","height":"5′5″","weight":"112 lbs"}
+      "vitals": {"gender":"Female","pronouns":"She/Her","sexuality":"Straight","height":"5′5″","weight":"112 lbs"},
+      "wardrobe": [
+        {"name":"UNIFORM","src":"assets/characters/outfits/aoi-uniform.png"},
+        {"name":"CASUAL","src":"assets/characters/outfits/aoi-casual.png"},
+        {"name":"SWIMSUIT","src":"assets/characters/outfits/aoi-swimsuit.png"},
+        {"name":"AUTUMN","src":"assets/characters/outfits/aoi-autumn.png"},
+        {"name":"WINTER","src":"assets/characters/outfits/aoi-winter.png"},
+        {"name":"YUKATA","src":"assets/characters/outfits/aoi-yukata.png"},
+        {"name":"PART-TIME","src":"assets/characters/outfits/aoi-parttime.png"}
+      ]
     },
     "etsuko-odoriba": {
       "name": "Etsuko Odoriba",
