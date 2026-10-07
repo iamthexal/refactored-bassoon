@@ -115,9 +115,9 @@ a{color:#ff4f00;}a:hover{color:#ff4f00;text-decoration-thickness:3px;}
     <div style="font-family:'P5Menu',sans-serif;font-size:{{ g.size1 }}px;line-height:0.88;color:#fff;letter-spacing:-2px;text-shadow:{{ g.shadow1 }};">{{ g.line1 }}</div>
     <div style="margin-left:{{ g.indent }}px;background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:{{ g.size2 }}px;line-height:1;padding:{{ g.pad2 }};">{{ g.line2 }}</div>
   </div>
-  <div data-anim="rows" style="position:absolute;right:120px;top:0;height:1080px;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:22px;">
+  <div data-anim="rows" style="position:absolute;right:120px;top:0;height:1080px;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:{{ g.rowGap }}px;">
     <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="4">
-      <div onClick="{{ r.go }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:22px;rotate:{{ r.rot }};cursor:pointer;transition:transform .12s;" style-hover="transform:translateX(-14px) scale(1.04);"><div style="font-family:'P5Menu',sans-serif;font-size:44px;color:#ff4f00;">{{ r.mark }}</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:64px;line-height:1;padding:6px 22px;">{{ r.name }}</div></div>
+      <div onClick="{{ r.go }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:22px;rotate:{{ r.rot }};cursor:pointer;transition:transform .12s;" style-hover="transform:translateX(-14px) scale(1.04);"><div style="font-family:'P5Menu',sans-serif;font-size:{{ g.markSize }}px;color:#ff4f00;">{{ r.mark }}</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:{{ g.rowSize }}px;line-height:1;padding:{{ g.rowPad }};">{{ r.name }}</div></div>
     </sc-for>
   </div>
   <div onClick="{{ goHome }}" role="button" tabindex="0" title="Back to title" style="position:absolute;left:110px;bottom:70px;display:flex;align-items:center;gap:16px;background:#000;border:4px solid #fff;box-shadow:8px 8px 0 #fff;padding:10px 24px 10px 18px;cursor:pointer;transform:rotate(-3deg);transition:transform .12s;z-index:3;" style-hover="transform:rotate(-3deg) translateX(-8px) scale(1.05);"><div style="display:flex;align-items:center;"><div style="width:6px;height:28px;background:#ff4f00;"></div><div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-right:22px solid #ff4f00;"></div></div><div style="font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;color:#fff;letter-spacing:1px;">TITLE</div></div>
@@ -334,6 +334,7 @@ class Component extends DCLogic {
         const back = go(label);
         const grp = { label, screen: pad(n++) + ' ' + g.title, mark: dv.mark, line1: dv.lines[0], line2: dv.lines[1] || '',
           size1: sz[0], size2: sz[1], indent: dv.indent, shadow1: sz[0] >= 200 ? '12px 12px 0 #000' : '10px 10px 0 #000', pad2: sz[0] >= 200 ? '6px 30px' : '6px 24px', rows: [], chars: [] };
+        { const k = g.members.length, s = k <= 7 ? 1 : Math.max(0.55, 7 / k); Object.assign(grp, { rowSize: Math.round(64 * s), markSize: Math.round(44 * s), rowGap: Math.round(22 * s), rowPad: Math.round(6 * s) + 'px ' + Math.round(22 * s) + 'px' }); }
         g.characters.forEach((c, ci) => {
           const L = c.layout, cl = 'Character: ' + c.name, num = n++;
           byId[c.id] = { label: cl, short: c.display[0] };
