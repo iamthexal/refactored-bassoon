@@ -1,0 +1,254 @@
+{
+  "_readme": [
+    "All positioning numbers (px unless noted). Content lives in the other files.",
+    "defaults apply to every slide; per-entry values override them.",
+    "characters[id].art: portrait right/top/height. quoteTop / bioTop: vertical positions of the quote and bio boxes.",
+    "name.size: [line 1, line 2] font sizes. quote / bio: style overrides (see defaults for keys). vitalsTop: VITALS panel top."
+  ],
+  "defaults": {
+    "name": {"size":[180,84],"shadow":10},
+    "quote": {
+      "left": 120,
+      "width": 840,
+      "rotate": -2,
+      "align": "center",
+      "gap": 18,
+      "size": 30,
+      "pad": "12px 24px",
+      "lineHeight": 1.2,
+      "clip": "polygon(0 0,100% 6%,99% 100%,1% 92%)"
+    },
+    "bio": {"size":24,"lineHeight":1.3,"gap":12,"pad":"28px 36px"},
+    "vitalsTop": 450,
+    "divider": {"size":[220,150],"indent":80}
+  },
+  "dividers": {"normal":{"size":[150,96],"indent":40}},
+  "characters": {
+    "utako-yamanashi": {
+      "art": {"right":150,"top":24,"height":1040},
+      "quoteTop": 478,
+      "bioTop": 590,
+      "name": {"size":[200,84]},
+      "bio": {"pad":"30px 38px"}
+    },
+    "shou-satake": {"art":{"right":260,"top":60,"height":1000},"quoteTop":420,"bioTop":560,"bio":{"gap":16}},
+    "aoi-tsukino": {"art":{"right":250,"top":50,"height":1000},"quoteTop":458,"bioTop":560},
+    "etsuko-odoriba": {
+      "art": {"right":150,"top":24,"height":1040},
+      "quoteTop": 420,
+      "bioTop": 560,
+      "name": {"size":[160,84]},
+      "bio": {"gap":16}
+    },
+    "kazumasa-odoriba": {
+      "art": {"right":150,"top":24,"height":1040},
+      "quoteTop": 420,
+      "bioTop": 560,
+      "name": {"size":[160,84]},
+      "bio": {"gap":16}
+    },
+    "yukina-yoshie": {"art":{"right":250,"top":50,"height":1000},"quoteTop":458,"bioTop":560},
+    "kouhei-inoue": {
+      "art": {"right":280,"top":50,"height":1010},
+      "quoteTop": 400,
+      "bioTop": 540,
+      "bio": {"size":26,"lineHeight":1.35}
+    },
+    "takeru-magohei": {"art":{"right":300,"top":30,"height":990},"quoteTop":458,"bioTop":560},
+    "chester": {
+      "art": {"right":300,"top":50,"height":990},
+      "quoteTop": 400,
+      "bioTop": 540,
+      "bio": {"size":26,"lineHeight":1.35,"gap":18}
+    },
+    "motoshige-yamanashi": {
+      "art": {"right":300,"top":40,"height":1000},
+      "quoteTop": 400,
+      "bioTop": 510,
+      "name": {"size":[128,84],"shadow":8},
+      "bio": {"lineHeight":1.32}
+    },
+    "giken-tsukino": {
+      "art": {"right":300,"top":40,"height":1000},
+      "quoteTop": 400,
+      "bioTop": 540,
+      "bio": {"size":26,"lineHeight":1.35}
+    },
+    "yoriko-mihara": {"art":{"right":300,"top":40,"height":1020},"quoteTop":400,"bioTop":540,"vitalsTop":470},
+    "mio-higanbana": {"art":{"right":250,"top":50,"height":1010},"quoteTop":400,"bioTop":540,"vitalsTop":470},
+    "sayaka-kakureya": {"art":{"right":250,"top":50,"height":1010},"quoteTop":400,"bioTop":540,"vitalsTop":470},
+    "shigekata-odoriba": {
+      "art": {"right":250,"top":40,"height":1020},
+      "quoteTop": 350,
+      "bioTop": 460,
+      "name": {"size":[128,84]},
+      "bio": {"gap":14,"pad":"30px 38px"}
+    },
+    "tetsuo-yamanashi": {
+      "art": {"right":240,"top":40,"height":1020},
+      "quoteTop": 400,
+      "bioTop": 510,
+      "bio": {"gap":14,"pad":"30px 38px"}
+    },
+    "jota-oomiya": {
+      "art": {"right":200,"top":40,"height":1020},
+      "quoteTop": 400,
+      "bioTop": 510,
+      "bio": {"gap":14,"pad":"30px 38px"}
+    },
+    "principal-sudo": {
+      "art": {"right":240,"top":40,"height":1020},
+      "quoteTop": 350,
+      "bioTop": 460,
+      "name": {"size":[128,84]},
+      "bio": {"gap":14,"pad":"30px 38px"}
+    },
+    "igor": {
+      "art": {"right":320,"top":120,"height":900},
+      "quoteTop": 390,
+      "bioTop": 590,
+      "quote": {
+        "left": 110,
+        "width": 860,
+        "rotate": -1.5,
+        "align": "flex-start",
+        "gap": 16,
+        "size": 27,
+        "pad": "16px 28px 20px",
+        "lineHeight": 1.25,
+        "clip": "polygon(0 0,100% 3%,99.5% 100%,0.5% 97%)"
+      },
+      "bio": {"lineHeight":1.32}
+    },
+    "agatha": {
+      "art": {"right":300,"top":40,"height":1020},
+      "quoteTop": 390,
+      "bioTop": 590,
+      "quote": {
+        "left": 110,
+        "width": 860,
+        "rotate": -1.5,
+        "align": "flex-start",
+        "gap": 16,
+        "size": 27,
+        "pad": "16px 28px 20px",
+        "lineHeight": 1.25,
+        "clip": "polygon(0 0,100% 3%,99.5% 100%,0.5% 97%)"
+      },
+      "bio": {"lineHeight":1.32,"gap":14}
+    },
+    "safie": {
+      "art": {"right":290,"top":40,"height":1020},
+      "quoteTop": 390,
+      "bioTop": 590,
+      "quote": {
+        "left": 110,
+        "width": 860,
+        "rotate": -1.5,
+        "align": "flex-start",
+        "gap": 16,
+        "size": 27,
+        "pad": "16px 28px 20px",
+        "lineHeight": 1.25,
+        "clip": "polygon(0 0,100% 3%,99.5% 100%,0.5% 97%)"
+      },
+      "bio": {"lineHeight":1.32,"gap":14}
+    },
+    "lottie": {
+      "art": {"right":290,"top":40,"height":1020},
+      "quoteTop": 390,
+      "bioTop": 590,
+      "quote": {
+        "left": 110,
+        "width": 860,
+        "rotate": -1.5,
+        "align": "flex-start",
+        "gap": 16,
+        "size": 27,
+        "pad": "16px 28px 20px",
+        "lineHeight": 1.25,
+        "clip": "polygon(0 0,100% 3%,99.5% 100%,0.5% 97%)"
+      },
+      "bio": {"lineHeight":1.32,"gap":14}
+    },
+    "sekizan-myojin": {"art":{"right":250,"top":50,"height":1010},"quoteTop":400,"bioTop":540,"bio":{"pad":"30px 38px"}},
+    "prometheus": {
+      "art": {"right":200,"top":40,"height":1020},
+      "quoteTop": 400,
+      "bioTop": 540,
+      "bio": {"pad":"30px 38px"},
+      "name": {"size":[150,84]}
+    },
+    "princess-kaguya": {
+      "art": {"right":220,"top":40,"height":1020},
+      "quoteTop": 400,
+      "bioTop": 540,
+      "bio": {"pad":"30px 38px"},
+      "name": {"size":[150,84]}
+    },
+    "taira-no-atsumori": {"art":{"right":250,"top":50,"height":1010},"quoteTop":400,"bioTop":540,"bio":{"pad":"30px 38px"}},
+    "ezekiel": {"art":{"right":250,"top":50,"height":1010},"quoteTop":400,"bioTop":540,"bio":{"pad":"30px 38px"}},
+    "white-rabbit": {"art":{"right":250,"top":50,"height":1010},"quoteTop":400,"bioTop":540,"bio":{"pad":"30px 38px"}},
+    "shadow-saburo": {"art":{"right":150,"top":24,"height":1040},"quoteTop":400,"bioTop":540,"bio":{"pad":"30px 38px"}},
+    "shadow-takeru": {"art":{"right":150,"top":24,"height":1040},"quoteTop":400,"bioTop":540,"bio":{"pad":"30px 38px"}},
+    "chuuzenji": {
+      "art": {"right":260,"top":50,"height":1000},
+      "quoteTop": 340,
+      "bioTop": 520,
+      "name": {"size":[160,84]},
+      "quote": {"size":28},
+      "bio": {"pad":"30px 38px"}
+    },
+    "cain": {
+      "art": {"right":230,"top":50,"height":1010},
+      "quoteTop": 330,
+      "bioTop": 530,
+      "name": {"size":[200,84]},
+      "quote": {"width":860,"size":28,"clip":"polygon(0 0,100% 4%,99% 100%,1% 95%)"},
+      "bio": {"size":28,"gap":16,"pad":"30px 38px"}
+    },
+    "eihi": {
+      "art": {"right":250,"top":50,"height":1010},
+      "quoteTop": 330,
+      "bioTop": 530,
+      "name": {"size":[200,84]},
+      "quote": {"width":860,"size":28,"clip":"polygon(0 0,100% 4%,99% 100%,1% 95%)"},
+      "bio": {"pad":"30px 38px"}
+    },
+    "noburu-tameyasu": {
+      "art": {"right":220,"top":40,"height":1020},
+      "quoteTop": 410,
+      "bioTop": 480,
+      "name": {"size":[160,84]},
+      "bio": {"gap":14,"pad":"30px 38px"}
+    },
+    "lilith": {
+      "art": {"right":220,"top":40,"height":1020},
+      "quoteTop": 400,
+      "bioTop": 540,
+      "bio": {"pad":"30px 38px"},
+      "name": {"size":[150,84]}
+    },
+    "ame-no-uzume": {
+      "art": {"right":220,"top":40,"height":1020},
+      "quoteTop": 400,
+      "bioTop": 540,
+      "bio": {"pad":"30px 38px"},
+      "name": {"size":[150,84]}
+    },
+    "egregore": {
+      "art": {"right":220,"top":40,"height":1020},
+      "quoteTop": 400,
+      "bioTop": 540,
+      "bio": {"pad":"30px 38px"},
+      "name": {"size":[150,84]}
+    },
+    "morrigan": {
+      "art": {"right":220,"top":40,"height":1020},
+      "quoteTop": 400,
+      "bioTop": 540,
+      "bio": {"pad":"30px 38px"},
+      "name": {"size":[150,84]}
+    }
+  }
+}

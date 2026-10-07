@@ -1,0 +1,78 @@
+{
+  "_readme": [
+    "Deck sections in order. Each gets a divider slide, followed by its members (character ids) in this order.",
+    "crumb: label on each member slide. divider.mark: big number. divider.lines: the two title lines."
+  ],
+  "groups": [
+    {
+      "id": "main",
+      "title": "Main Party",
+      "crumb": "MAIN CAST /",
+      "divider": {"mark":"01","lines":["MAIN","PARTY"]},
+      "members": [
+        "utako-yamanashi",
+        "shou-satake",
+        "aoi-tsukino",
+        "etsuko-odoriba",
+        "kazumasa-odoriba",
+        "yukina-yoshie",
+        "kouhei-inoue",
+        "takeru-magohei",
+        "chester"
+      ]
+    },
+    {
+      "id": "confidants",
+      "title": "Confidants",
+      "crumb": "CONFIDANT /",
+      "divider": {"mark":"02","lines":["CONFI","DANTS"]},
+      "members": ["motoshige-yamanashi","giken-tsukino","yoriko-mihara","mio-higanbana","sayaka-kakureya"]
+    },
+    {
+      "id": "normal",
+      "title": "Normal Characters",
+      "crumb": "NORMAL /",
+      "divider": {"mark":"03","lines":["NORMAL","CHARACTERS"]},
+      "members": ["shigekata-odoriba","tetsuo-yamanashi","jota-oomiya","principal-sudo"]
+    },
+    {
+      "id": "velvet",
+      "title": "Velvet Room",
+      "crumb": "VELVET ROOM /",
+      "divider": {"mark":"04","lines":["VELVET","ROOM"]},
+      "members": ["igor","agatha","safie","lottie"]
+    },
+    {
+      "id": "personas",
+      "title": "Personas",
+      "crumb": "PERSONA /",
+      "divider": {"mark":"05","lines":["PERSO","NAS"]},
+      "members": [
+        "sekizan-myojin",
+        "prometheus",
+        "princess-kaguya",
+        "ame-no-uzume",
+        "taira-no-atsumori",
+        "lilith",
+        "egregore",
+        "ezekiel",
+        "morrigan",
+        "white-rabbit"
+      ]
+    },
+    {
+      "id": "shadows",
+      "title": "Shadows",
+      "crumb": "SHADOWS /",
+      "divider": {"mark":"06","lines":["SHAD","OWS"]},
+      "members": ["shadow-saburo","shadow-takeru"]
+    },
+    {
+      "id": "adversaries",
+      "title": "Adversaries",
+      "crumb": "ADVERSARY /",
+      "divider": {"mark":"07","lines":["ADVER","SARIES"]},
+      "members": ["chuuzenji","cain","eihi","noburu-tameyasu"]
+    }
+  ]
+}
