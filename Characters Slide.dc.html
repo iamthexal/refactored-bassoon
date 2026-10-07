@@ -67,8 +67,7 @@ a{color:#ff4f00;}a:hover{color:#ff4f00;text-decoration-thickness:3px;}
   <div data-anim="buttons" style="position:absolute;right:90px;bottom:44px;display:flex;flex-direction:column;align-items:flex-end;gap:10px;z-index:3;"><div onClick="{{ toMain }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:16px;cursor:pointer;transform:rotate(-4deg);background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:7px 22px;box-shadow:10px 10px 0 #000;transition:transform .12s;" style-hover="transform:rotate(-4deg) translateX(-16px) scale(1.05);">MAIN PARTY</div><div onClick="{{ toConf }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:16px;cursor:pointer;transform:rotate(2deg);background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:7px 22px;box-shadow:10px 10px 0 #000;transition:transform .12s;" style-hover="transform:rotate(2deg) translateX(-16px) scale(1.05);">CONFIDANTS</div><div onClick="{{ toNormal }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:16px;cursor:pointer;transform:rotate(-3deg);background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:7px 22px;box-shadow:10px 10px 0 #000;transition:transform .12s;" style-hover="transform:rotate(-3deg) translateX(-16px) scale(1.05);">NORMAL CHARACTERS</div><div onClick="{{ toPersonas }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:16px;cursor:pointer;transform:rotate(2deg);background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:7px 22px;box-shadow:10px 10px 0 #000;transition:transform .12s;" style-hover="transform:rotate(2deg) translateX(-16px) scale(1.05);">PERSONAS</div><div onClick="{{ toShadows }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:16px;cursor:pointer;transform:rotate(-3deg);background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:7px 22px;box-shadow:10px 10px 0 #000;transition:transform .12s;" style-hover="transform:rotate(-3deg) translateX(-16px) scale(1.05);">SHADOWS</div><div onClick="{{ toEvil }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:16px;cursor:pointer;transform:rotate(-2deg);background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:7px 22px;box-shadow:10px 10px 0 #000;transition:transform .12s;" style-hover="transform:rotate(-2deg) translateX(-16px) scale(1.05);">ADVERSARIES</div></div>
   <div onClick="{{ toArcana }}" role="button" tabindex="0" title="Arcana Deck" style="position:absolute;right:90px;top:80px;cursor:pointer;transform:rotate(3deg);background:#fff;color:#000;border:4px solid #000;box-shadow:10px 10px 0 #000;padding:8px 24px;font-family:'P5Menu',sans-serif;font-size:44px;line-height:1;z-index:3;transition:transform .12s;" style-hover="transform:rotate(3deg) translateY(-6px) scale(1.05);">ARCANA DECK</div>
   <div onClick="{{ toVR }}" role="button" tabindex="0" title="Velvet Room" style="position:absolute;left:110px;bottom:70px;display:flex;align-items:center;gap:16px;cursor:pointer;transform:rotate(-3deg);background:#000;border:4px solid #ff4f00;box-shadow:10px 10px 0 #ff4f00;padding:10px 26px;font-family:'P5Menu',sans-serif;font-size:44px;line-height:1;color:#fff;z-index:3;transition:transform .12s;" style-hover="transform:rotate(-3deg) translateX(8px) scale(1.05);">VELVET ROOM</div>
-</section>
-<section data-label="Arcana Deck" data-screen-label="Arcana Deck" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+</section><section data-label="Arcana Deck" data-screen-label="Arcana Deck" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;" data-om-slide-id="d99bfba3">
   <div style="position:absolute;left:-60px;top:640px;font-family:'P5Menu',sans-serif;font-size:420px;line-height:1;color:transparent;-webkit-text-stroke:3px #222;transform:rotate(-8deg);white-space:nowrap;pointer-events:none;">ARCANA</div>
   <div style="position:absolute;left:1136px;top:-100px;width:900px;height:1300px;background:#fff;clip-path:polygon(22% 0,100% 0,100% 100%,0 100%);"></div>
   <div style="position:absolute;left:1180px;top:-100px;width:900px;height:1300px;background:#ff4f00;clip-path:polygon(22% 0,100% 0,100% 100%,0 100%);"></div>
@@ -76,16 +75,16 @@ a{color:#ff4f00;}a:hover{color:#ff4f00;text-decoration-thickness:3px;}
     <div onClick="{{ goHome }}" role="button" tabindex="0" title="Back to title" style="width:64px;height:64px;flex:none;background:#ff4f00;border:4px solid #fff;box-shadow:6px 6px 0 #fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;transition:transform .12s;" style-hover="transform:translateX(-6px) scale(1.08);"><div style="width:0;height:0;border-top:13px solid transparent;border-bottom:13px solid transparent;border-right:22px solid #000;margin-right:4px;"></div></div>
     <div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:72px;line-height:1;padding:8px 30px 10px;box-shadow:10px 10px 0 #ff4f00;">ARCANA DECK</div>
   </div>
-  <div style="position:absolute;left:80px;top:200px;width:1000px;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:34px 24px;">
+  <div data-anim="deck" style="position:absolute;left:80px;top:200px;width:1000px;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:34px 24px;">
     <sc-for list="{{ arcana }}" as="a" hint-placeholder-count="30">
       <div onClick="{{ a.click }}" onMouseEnter="{{ a.hover }}" onFocus="{{ a.hover }}" role="button" tabindex="0" title="{{ a.name }}" style="position:relative;aspect-ratio:1054/1493;transform:{{ a.transform }};z-index:{{ a.z }};transition:transform .15s;cursor:pointer;">
         <div style="position:absolute;inset:0;background:#000;border:{{ a.border }};box-shadow:{{ a.shadow }};box-sizing:border-box;overflow:hidden;filter:{{ a.filter }};">
           <img decoding="async" loading="lazy" ref="{{ a.imgRef }}" alt="{{ a.name }}" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
         <div style="position:absolute;left:-14px;right:-14px;bottom:-12px;display:flex;justify-content:center;pointer-events:none;">
-          <div style="background:{{ a.tagBg }};color:{{ a.tagFg }};font-family:'Archivo Narrow','Arial Narrow',sans-serif;font-weight:700;font-size:17px;letter-spacing:.5px;line-height:1;padding:4px 7px 5px;box-shadow:3px 3px 0 #000;transform:rotate(-3deg);white-space:nowrap;">{{ a.short }}</div>
+          <div style="background:{{ a.tagBg }};color:{{ a.tagFg }};font-family:'Archivo Narrow','Arial Narrow',sans-serif;font-weight:700;font-size:24px;line-height:1;padding:3px 6px 4px;box-shadow:3px 3px 0 #000;transform:rotate(-3deg);white-space:nowrap;">{{ a.short }}</div>
         </div>
-        <sc-if value="{{ a.ex }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;top:-10px;right:-10px;background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:16px;line-height:1;padding:3px 6px;border:2px solid #000;transform:rotate(8deg);">EX</div></sc-if>
+        <sc-if value="{{ a.ex }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;top:-10px;right:-10px;background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;padding:3px 7px;border:2px solid #000;transform:rotate(8deg);">EX</div></sc-if>
       </div>
     </sc-for>
   </div>
@@ -105,6 +104,8 @@ a{color:#ff4f00;}a:hover{color:#ff4f00;text-decoration-thickness:3px;}
     </div>
   </div>
 </section>
+
+
 <section data-label="Divider: Main Party" data-screen-label="02 Main Party" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;" data-om-slide-id="305b55bd">
   <div data-anim="sweep" style="position:absolute;left:-200px;top:-120px;width:1500px;height:1400px;background:#ff4f00;clip-path:polygon(0 0,78% 0,52% 100%,0 100%);"></div>
   <div data-anim="drop" style="position:absolute;left:990px;top:0;width:40px;height:1080px;background:#fff;transform:skewX(-14deg);"></div>
@@ -122,10 +123,11 @@ a{color:#ff4f00;}a:hover{color:#ff4f00;text-decoration-thickness:3px;}
   <div data-anim="mark" style="position:absolute;right:200px;top:110px;width:600px;height:600px;border-radius:50%;background:#000;"></div>
   <div data-anim="card" style="position:absolute;left:1060px;top:70px;width:290px;aspect-ratio:1054/1493;transform:rotate(-12deg);background:#000;border:6px solid #fff;box-shadow:14px 14px 0 #000;box-sizing:border-box;overflow:hidden;pointer-events:none;"><img decoding="async" src="assets/arcana/fool.webp" alt="The Fool arcana" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
   <img data-anim="art" decoding="async" src="assets/characters/utako.webp" alt="Utako Yamanashi" style="position:absolute;right:150px;top:24px;height:1040px;filter:drop-shadow(14px 12px 0 #000);pointer-events:none;">
-  <div data-anim="rows" style="position:absolute;left:96px;top:72px;display:flex;align-items:center;gap:20px;transform:rotate(-4deg);transform-origin:left;">
+  <div data-anim="rows" style="position:absolute;left:96px;top:84px;display:flex;align-items:center;gap:20px;transform:rotate(-4deg);transform-origin:left;">
     <div onClick="{{ toMain }}" role="button" tabindex="0" title="Back to section" style="width:60px;height:60px;flex:none;background:#000;border:4px solid #fff;box-shadow:6px 6px 0 #ff4f00;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;transition:transform .12s;" style-hover="transform:translateX(-6px) scale(1.08);"><div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-right:20px solid #ff4f00;margin-right:4px;"></div></div>
     <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;border:4px solid #fff;">MAIN CAST /</div>
     <div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;transform:rotate(3deg);">0 · THE FOOL</div>
+    <div onClick="{{ toOutfitsUtako }}" role="button" tabindex="0" title="Outfits" style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;border:4px solid #000;box-shadow:6px 6px 0 #ff4f00;cursor:pointer;transform:rotate(-2deg);transition:transform .12s;" style-hover="transform:rotate(-2deg) translateY(-4px) scale(1.06);">OUTFITS ▸</div>
   </div>
   <div data-anim="info" style="position:absolute;left:84px;top:150px;transform:rotate(-6deg);transform-origin:left top;display:flex;flex-direction:column;gap:6px;">
     <div style="font-family:'P5Menu',sans-serif;font-size:200px;line-height:0.88;color:#ff4f00;letter-spacing:-2px;text-shadow:10px 10px 0 #fff;">UTAKO</div>
@@ -165,6 +167,44 @@ a{color:#ff4f00;}a:hover{color:#ff4f00;text-decoration-thickness:3px;}
     <div style="background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:56px;padding:6px 24px;border:4px solid #ff4f00;">FUTURE</div>
   </div>
 </section>
+
+<section data-label="Outfits: Utako Yamanashi" data-screen-label="03b Utako Outfits" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;" data-om-slide-id="0ade4ce4">
+  <div data-anim="tint" style="position:absolute;inset:0;"><div style="position:absolute;inset:0;background:url('assets/backgrounds/city.jpg') center bottom/cover no-repeat;filter:grayscale(1) contrast(1.35) brightness(1.1);"></div><div style="position:absolute;inset:0;background:#ff4f00;mix-blend-mode:multiply;"></div></div>
+  <div data-anim="slabL" style="position:absolute;left:-100px;top:-100px;width:760px;height:1400px;background:#0a0a0a;clip-path:polygon(0 0,100% 0,55% 100%,0 100%);"></div>
+  <div data-anim="slabR" style="position:absolute;left:0;right:0;bottom:0;height:300px;background:#0a0a0a;clip-path:polygon(0 45%,100% 15%,100% 100%,0 100%);"></div>
+  <div data-anim="num" style="position:absolute;left:70px;top:190px;display:flex;flex-direction:column;align-items:flex-start;transform:rotate(-6deg);">
+    <div style="font-family:'P5Menu',sans-serif;font-size:340px;line-height:0.8;color:#ff4f00;text-shadow:12px 12px 0 #fff;">{{ outfitNum }}</div>
+    <div style="margin-left:120px;margin-top:10px;background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:56px;line-height:1;padding:4px 18px;">/ 07</div>
+  </div>
+  <div data-anim="art" style="position:absolute;left:1010px;top:30px;width:0;height:870px;pointer-events:none;">
+    <img data-outfit="0" decoding="async" src="assets/characters/outfits/utako-uniform.png" alt="Utako — UNIFORM" style="position:absolute;left:0;top:0;height:870px;transform:translateX(-50%);filter:drop-shadow(14px 12px 0 #000);opacity:{{ oo0 }};transition:opacity .2s;">
+    <img data-outfit="1" decoding="async" src="assets/characters/outfits/utako-casual.png" alt="Utako — CASUAL" style="position:absolute;left:0;top:0;height:870px;transform:translateX(-50%);filter:drop-shadow(14px 12px 0 #000);opacity:{{ oo1 }};transition:opacity .2s;">
+    <img data-outfit="2" decoding="async" src="assets/characters/outfits/utako-swimsuit.png" alt="Utako — SWIMSUIT" style="position:absolute;left:0;top:0;height:870px;transform:translateX(-50%);filter:drop-shadow(14px 12px 0 #000);opacity:{{ oo2 }};transition:opacity .2s;">
+    <img data-outfit="3" decoding="async" src="assets/characters/outfits/utako-autumn.png" alt="Utako — AUTUMN" style="position:absolute;left:0;top:0;height:870px;transform:translateX(-50%);filter:drop-shadow(14px 12px 0 #000);opacity:{{ oo3 }};transition:opacity .2s;">
+    <img data-outfit="4" decoding="async" src="assets/characters/outfits/utako-winter.png" alt="Utako — WINTER" style="position:absolute;left:0;top:0;height:870px;transform:translateX(-50%);filter:drop-shadow(14px 12px 0 #000);opacity:{{ oo4 }};transition:opacity .2s;">
+    <img data-outfit="5" decoding="async" src="assets/characters/outfits/utako-yukata.png" alt="Utako — YUKATA" style="position:absolute;left:0;top:0;height:870px;transform:translateX(-50%);filter:drop-shadow(14px 12px 0 #000);opacity:{{ oo5 }};transition:opacity .2s;">
+    <img data-outfit="6" decoding="async" src="assets/characters/outfits/utako-parttime.png" alt="Utako — PART-TIME" style="position:absolute;left:0;top:0;height:870px;transform:translateX(-50%);filter:drop-shadow(14px 12px 0 #000);opacity:{{ oo6 }};transition:opacity .2s;">
+  </div>
+  <div data-anim="name" style="position:absolute;right:70px;top:430px;display:flex;flex-direction:column;align-items:flex-end;gap:14px;transform:rotate(-5deg);">
+    <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:110px;line-height:1;padding:8px 30px 12px;box-shadow:14px 14px 0 #fff;">{{ outfitName }}</div>
+    <div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:36px;line-height:1;padding:6px 18px;transform:rotate(3deg);">UTAKO YAMANASHI</div>
+  </div>
+  <div data-anim="rows" style="position:absolute;left:80px;top:56px;display:flex;align-items:center;gap:20px;transform:rotate(-3deg);transform-origin:left;z-index:2;">
+    <div onClick="{{ goUtako }}" role="button" tabindex="0" title="Back to Utako" style="width:60px;height:60px;flex:none;background:#000;border:4px solid #fff;box-shadow:6px 6px 0 #ff4f00;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;transition:transform .12s;" style-hover="transform:translateX(-6px) scale(1.08);"><div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-right:20px solid #ff4f00;margin-right:4px;"></div></div>
+    <div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:64px;line-height:1;padding:6px 26px 8px;box-shadow:10px 10px 0 #ff4f00;">WARDROBE</div>
+  </div>
+  <div data-anim="tabs" style="position:absolute;left:90px;right:90px;bottom:44px;display:flex;align-items:flex-end;gap:14px;z-index:2;">
+    <div onClick="{{ of0 }}" role="button" tabindex="0" title="UNIFORM" style="flex:1 1 0;min-width:0;height:100px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;background:{{ tb0 }};color:{{ tc0 }};border:4px solid #fff;box-shadow:8px 8px 0 #000;transform:{{ tt0 }};cursor:pointer;transition:transform .15s,background .15s;"><div style="font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;transform:skewX(14deg);">01</div><div style="font-family:'P5Menu',sans-serif;font-size:36px;line-height:1;transform:skewX(14deg);white-space:nowrap;">UNIFORM</div></div>
+    <div onClick="{{ of1 }}" role="button" tabindex="0" title="CASUAL" style="flex:1 1 0;min-width:0;height:100px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;background:{{ tb1 }};color:{{ tc1 }};border:4px solid #fff;box-shadow:8px 8px 0 #000;transform:{{ tt1 }};cursor:pointer;transition:transform .15s,background .15s;"><div style="font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;transform:skewX(14deg);">02</div><div style="font-family:'P5Menu',sans-serif;font-size:36px;line-height:1;transform:skewX(14deg);white-space:nowrap;">CASUAL</div></div>
+    <div onClick="{{ of2 }}" role="button" tabindex="0" title="SWIMSUIT" style="flex:1 1 0;min-width:0;height:100px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;background:{{ tb2 }};color:{{ tc2 }};border:4px solid #fff;box-shadow:8px 8px 0 #000;transform:{{ tt2 }};cursor:pointer;transition:transform .15s,background .15s;"><div style="font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;transform:skewX(14deg);">03</div><div style="font-family:'P5Menu',sans-serif;font-size:36px;line-height:1;transform:skewX(14deg);white-space:nowrap;">SWIMSUIT</div></div>
+    <div onClick="{{ of3 }}" role="button" tabindex="0" title="AUTUMN" style="flex:1 1 0;min-width:0;height:100px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;background:{{ tb3 }};color:{{ tc3 }};border:4px solid #fff;box-shadow:8px 8px 0 #000;transform:{{ tt3 }};cursor:pointer;transition:transform .15s,background .15s;"><div style="font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;transform:skewX(14deg);">04</div><div style="font-family:'P5Menu',sans-serif;font-size:36px;line-height:1;transform:skewX(14deg);white-space:nowrap;">AUTUMN</div></div>
+    <div onClick="{{ of4 }}" role="button" tabindex="0" title="WINTER" style="flex:1 1 0;min-width:0;height:100px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;background:{{ tb4 }};color:{{ tc4 }};border:4px solid #fff;box-shadow:8px 8px 0 #000;transform:{{ tt4 }};cursor:pointer;transition:transform .15s,background .15s;"><div style="font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;transform:skewX(14deg);">05</div><div style="font-family:'P5Menu',sans-serif;font-size:36px;line-height:1;transform:skewX(14deg);white-space:nowrap;">WINTER</div></div>
+    <div onClick="{{ of5 }}" role="button" tabindex="0" title="YUKATA" style="flex:1 1 0;min-width:0;height:100px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;background:{{ tb5 }};color:{{ tc5 }};border:4px solid #fff;box-shadow:8px 8px 0 #000;transform:{{ tt5 }};cursor:pointer;transition:transform .15s,background .15s;"><div style="font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;transform:skewX(14deg);">06</div><div style="font-family:'P5Menu',sans-serif;font-size:36px;line-height:1;transform:skewX(14deg);white-space:nowrap;">YUKATA</div></div>
+    <div onClick="{{ of6 }}" role="button" tabindex="0" title="PART-TIME" style="flex:1 1 0;min-width:0;height:100px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;background:{{ tb6 }};color:{{ tc6 }};border:4px solid #fff;box-shadow:8px 8px 0 #000;transform:{{ tt6 }};cursor:pointer;transition:transform .15s,background .15s;"><div style="font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;transform:skewX(14deg);">07</div><div style="font-family:'P5Menu',sans-serif;font-size:36px;line-height:1;transform:skewX(14deg);white-space:nowrap;">PART-TIME</div></div>
+  </div>
+</section>
+
+
 <section data-label="Character: Shou Satake" data-screen-label="04 Shou Satake" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;" data-om-slide-id="31e71683">
   <div data-anim="sweep" style="position:absolute;right:-160px;top:-120px;width:1300px;height:1400px;background:#ff4f00;clip-path:polygon(34% 0,100% 0,100% 100%,0 100%);"></div>
   <div data-anim="drop" style="position:absolute;left:1010px;top:0;width:36px;height:1080px;background:#fff;transform:skewX(-14deg);"></div>
@@ -947,7 +987,7 @@ a{color:#ff4f00;}a:hover{color:#ff4f00;text-decoration-thickness:3px;}
     <div style="background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:56px;padding:6px 24px;border:4px solid #ff4f00;">FUTURE</div>
   </div>
 </section>
-<section data-label="Character: Principal Sudo" data-screen-label="22 Principal Sudo" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+<section data-label="Character: Principal Sudo" data-screen-label="22 Principal Sudo" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;" data-om-slide-id="12f1ccb3">
   <div data-anim="sweep" style="position:absolute;right:-160px;top:-120px;width:1300px;height:1400px;background:#ff4f00;clip-path:polygon(34% 0,100% 0,100% 100%,0 100%);"></div>
   <div data-anim="drop" style="position:absolute;left:1010px;top:0;width:36px;height:1080px;background:#fff;transform:skewX(-14deg);"></div>
   <div data-anim="mark" style="position:absolute;right:200px;top:110px;width:600px;height:600px;border-radius:50%;background:#000;"></div>
@@ -1148,7 +1188,7 @@ a{color:#ff4f00;}a:hover{color:#ff4f00;text-decoration-thickness:3px;}
   </div>
 
 </section>
-<section data-label="Character: Lottie" data-screen-label="27 Lottie" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+<section data-label="Character: Lottie" data-screen-label="27 Lottie" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;" data-om-slide-id="9b564a70">
   <div data-anim="sweep" style="position:absolute;right:-160px;top:-120px;width:1300px;height:1400px;background:#ff4f00;clip-path:polygon(34% 0,100% 0,100% 100%,0 100%);"></div>
   <div data-anim="drop" style="position:absolute;left:1010px;top:0;width:36px;height:1080px;background:#fff;transform:skewX(-14deg);"></div>
   <div data-anim="mark" style="position:absolute;right:200px;top:110px;width:600px;height:600px;border-radius:50%;background:#000;"></div>
@@ -1522,7 +1562,7 @@ a{color:#ff4f00;}a:hover{color:#ff4f00;text-decoration-thickness:3px;}
     <div style="background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:56px;padding:6px 24px;border:4px solid #ff4f00;">FUTURE</div>
   </div>
 </section>
-<section data-label="Character: Noburu Tameyasu" data-screen-label="40 Noburu Tameyasu" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+<section data-label="Character: Noburu Tameyasu" data-screen-label="40 Noburu Tameyasu" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;" data-om-slide-id="4e2f16a7">
   <div data-anim="sweep" style="position:absolute;right:-160px;top:-120px;width:1300px;height:1400px;background:#ff4f00;clip-path:polygon(34% 0,100% 0,100% 100%,0 100%);"></div>
   <div data-anim="drop" style="position:absolute;left:1010px;top:0;width:36px;height:1080px;background:#fff;transform:skewX(-14deg);"></div>
   <div data-anim="mark" style="position:absolute;right:200px;top:110px;width:600px;height:600px;border-radius:50%;background:#000;"></div>
@@ -1619,6 +1659,24 @@ class Component extends DCLogic {
       pop(A('mark'), 160, 420);
       stagger(kids('title'), (el, d) => fromX(el, -900, d, 460), 200, 100);
       stagger(kids('rows'), (el, d) => fromX(el, 700, d), 300, 70);
+    } else if (/^Outfits/.test(lab)) {
+      run(A('tint'), [{ opacity: 0 }, { opacity: 1 }], 0, 300);
+      fromX(A('sweep'), -1300, 0, 400);
+      fromX(A('slabL'), -1200, 40, 400);
+      fromX(A('slabR'), 1400, 40, 400);
+      pop(A('mark'), 120, 460);
+      fromY(A('drop'), -1200, 60, 380);
+      fromY(A('bar'), 1200, 100, 360);
+      fromX(A('art'), 300, 220, 520);
+      fromX(A('outline'), -900, 200, 500);
+      fromX(A('num'), -700, 160, 460);
+      fromX(A('name'), 600, 340, 460);
+      stagger(kids('rows'), (el, d) => fromX(el, -500, d), 120, 70);
+      stagger(kids('list'), (el, d) => fromX(el, -700, d), 200, 50);
+      stagger(kids('tabs'), (el, d) => fromY(el, 300, d, 380), 300, 50);
+      stagger(kids('cards'), (el, d) => pop(el, d, 340), 280, 50);
+      stagger(kids('polas'), (el, d) => pop(el, d, 340), 280, 60);
+      fromX(A('info'), 500, 380, 460);
     } else if (lab === 'Arcana Deck') {
       stagger(kids('deck'), (el, d) => pop(el, d, 300), 80, 16);
     } else if (lab === 'Title') {
@@ -1678,6 +1736,8 @@ class Component extends DCLogic {
       goP4: 'Character: White Rabbit',
       toShadows: 'Divider: Shadows',
       toMain: 'Divider: Main Party',
+      goUtako: 'Character: Utako Yamanashi',
+      toOutfitsUtako: 'Outfits: Utako Yamanashi',
       toConf: 'Divider: Confidants',
       toVR: 'Divider: Velvet Room'
     };
@@ -1698,7 +1758,26 @@ class Component extends DCLogic {
     }));
     const [sNum, sName, sChars, sImg] = ARCANA[sel];
     const handlers = Object.fromEntries(Object.entries(targets).map(([k, label]) => [k, go(label)]));
-    return { ...handlers, arcana, selNum: sNum, selName: sName, selImg: sImg || '', selImgRef: this._imgRef(sImg || ''),
+    const OUTFITS = ["UNIFORM","CASUAL","SWIMSUIT","AUTUMN","WINTER","YUKATA","PART-TIME"];
+    const osel = this.state?.outfitSel ?? 0;
+    const outfit = {};
+    OUTFITS.forEach((n, i) => {
+      const on = i === osel;
+      outfit['of' + i] = () => {
+        if ((this.state?.outfitSel ?? 0) === i) return;
+        this.setState({ outfitSel: i }, () => {
+          if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          document.querySelectorAll('[data-outfit="' + i + '"]').forEach(el => el.animate([{ translate: '140px 0', opacity: 0, filter: 'drop-shadow(14px 12px 0 #000) brightness(2.5)' }, { translate: '0 0', opacity: 1, filter: 'drop-shadow(14px 12px 0 #000) brightness(1)' }], { duration: 380, easing: 'cubic-bezier(.16,1.25,.3,1)' }));
+        });
+      };
+      outfit['oo' + i] = on ? 1 : 0;
+      outfit['tb' + i] = on ? '#ff4f00' : '#000';
+      outfit['tc' + i] = on ? '#000' : '#fff';
+      outfit['tt' + i] = on ? 'skewX(-14deg) translateY(-24px) scale(1.06)' : 'skewX(-14deg)';
+    });
+    outfit.outfitNum = String(osel + 1).padStart(2, '0');
+    outfit.outfitName = OUTFITS[osel];
+    return { ...handlers, ...outfit, arcana, selNum: sNum, selName: sName, selImg: sImg || '', selImgRef: this._imgRef(sImg || ''),
       selChars: (sChars || []).map(([n, l]) => ({ name: n, go: go(l) })), selNone: !sChars,
       selGo: sChars ? go(sChars[0][1]) : () => {} };
   }
