@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Events · Persona: Mirage</title>
+<style>
+@font-face{font-family:"Archivo Narrow";font-weight:400 700;font-display:swap;src:url("assets/fonts/archivo-narrow-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Archivo Narrow";font-weight:400 700;font-display:swap;src:url("assets/fonts/archivo-narrow-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"P5Menu";src:url("assets/fonts/p5-menu.ttf") format("truetype");font-display:swap;}
+body{margin:0;background:#000;}
+a{color:#ff4f00;}a:hover{color:#ff4f00;text-decoration-thickness:3px;}
+</style>
+<script src="./deck-stage-p5.js"></script>
+</helmet>
+<x-import component-from-global-scope="deck-stage" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+<!-- Events: Calendar -->
+<section data-label="Events: Calendar" data-screen-label="01 Events Calendar" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+        <div style="position:absolute;left:0;top:0;width:1920px;height:400px;background:#ff4f00;clip-path:polygon(0 0,100% 0,100% 72%,0 100%);"></div>
+        <div style="position:absolute;left:80px;top:50px;background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:72px;line-height:1;padding:8px 30px 10px;box-shadow:10px 10px 0 #fff;transform:rotate(-3deg);">APRIL</div>
+        <div style="position:absolute;left:80px;top:190px;right:80px;display:flex;gap:18px;">
+          <sc-for list="{{ week }}" as="w" hint-placeholder-count="7">
+            <div onClick="{{ w.pick }}" role="button" tabindex="{{ w.tab }}" style="flex:1;height:170px;background:{{ w.bg }};color:{{ w.fg }};border:4px solid {{ w.bd }};box-shadow:{{ w.sh }};transform:{{ w.tf }};display:flex;flex-direction:column;justify-content:space-between;padding:12px 16px;box-sizing:border-box;cursor:{{ w.cur }};transition:transform .12s;opacity:{{ w.op }};">
+              <div style="font-family:'P5Menu',sans-serif;font-size:36px;line-height:1;">{{ w.wd }}</div>
+              <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+                <div style="font-family:'P5Menu',sans-serif;font-size:96px;line-height:.8;">{{ w.day }}</div>
+                <div style="font-family:'P5Menu',sans-serif;font-size:28px;color:#ff4f00;">{{ w.dots }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="position:absolute;left:80px;top:440px;display:flex;align-items:center;gap:20px;transform:rotate(-2deg);transform-origin:left;">
+          <div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:56px;line-height:1;padding:6px 22px;box-shadow:8px 8px 0 #ff4f00;">{{ selLong }}</div>
+          <sc-if value="{{ selToday }}" hint-placeholder-val="{{ false }}"><div style="background:#ff4f00;color:#000;border:3px solid #000;font-family:'P5Menu',sans-serif;font-size:32px;padding:6px 12px;transform:rotate(6deg);">TODAY</div></sc-if>
+        </div>
+        <div style="position:absolute;left:120px;top:560px;width:1680px;display:flex;flex-direction:column;gap:28px;">
+          <sc-for list="{{ selEntries }}" as="e" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;gap:24px;transform:rotate({{ e.rot }});">
+              <div style="flex:none;font-family:'P5Menu',sans-serif;font-size:64px;line-height:1;color:#ff4f00;width:90px;">{{ e.n }}</div>
+              <sc-if value="{{ e.hasTime }}" hint-placeholder-val="{{ false }}"><div style="flex:none;width:260px;box-sizing:border-box;text-align:center;background:{{ e.tBg }};color:{{ e.tFg }};border:4px solid {{ e.tBd }};font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:8px 10px;transform:rotate(-4deg);box-shadow:6px 6px 0 {{ e.tSh }};white-space:nowrap;">{{ e.time }}</div></sc-if>
+              <sc-if value="{{ e.noTime }}" hint-placeholder-val="{{ true }}"><div style="flex:none;width:260px;"></div></sc-if>
+              <div style="flex:1;font-size:38px;font-weight:600;line-height:1.3;border-bottom:4px solid #fff;padding-bottom:14px;text-wrap:pretty;"><sc-for list="{{ e.parts }}" as="p" hint-placeholder-count="1"><sc-if value="{{ p.link }}" hint-placeholder-val="{{ false }}"><span onClick="{{ p.go }}" role="button" tabindex="0" style="color:#ff4f00;cursor:pointer;text-decoration:underline;text-decoration-thickness:3px;">{{ p.t }}</span></sc-if><sc-if value="{{ p.plain }}" hint-placeholder-val="{{ true }}">{{ p.t }}</sc-if></sc-for></div>
+            </div>
+          </sc-for>
+          <sc-if value="{{ selEmpty }}" hint-placeholder-val="{{ false }}"><div style="font-family:'P5Menu',sans-serif;font-size:48px;color:#555;">THE DAY HAS ONLY JUST BEGUN…</div></sc-if>
+        </div>
+        <sc-if value="{{ selHasCast }}" hint-placeholder-val="{{ true }}">
+          <div onClick="{{ toggleCast }}" role="button" tabindex="0" style="position:absolute;right:80px;bottom:60px;display:flex;align-items:center;gap:14px;background:#ff4f00;color:#000;border:4px solid #000;box-shadow:8px 8px 0 #fff;font-family:'P5Menu',sans-serif;font-size:36px;line-height:1;padding:12px 22px;transform:rotate(-3deg);cursor:pointer;transition:transform .12s;" style-hover="transform:rotate(0deg) scale(1.05);">
+            <div>CHARACTERS INTRODUCED</div>
+            <div style="background:#000;color:#fff;padding:4px 10px;">{{ selCastCount }}</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ castOpen }}" hint-placeholder-val="{{ false }}">
+          <div onClick="{{ closeCast }}" style="position:absolute;inset:0;background:rgba(0,0,0,.72);"></div>
+          <div style="position:absolute;left:460px;top:250px;width:1000px;background:#fff;color:#000;border:6px solid #000;box-shadow:18px 18px 0 #ff4f00;transform:rotate(-1.5deg);display:flex;flex-direction:column;">
+            <div style="display:flex;justify-content:space-between;align-items:center;background:#000;color:#fff;padding:16px 26px;">
+              <div style="font-family:'P5Menu',sans-serif;font-size:48px;line-height:1;">CHARACTERS INTRODUCED</div>
+              <div onClick="{{ closeCast }}" role="button" tabindex="0" style="font-family:'P5Menu',sans-serif;font-size:44px;line-height:1;color:#ff4f00;cursor:pointer;padding:0 6px;">X</div>
+            </div>
+            <div style="font-weight:700;font-size:26px;letter-spacing:3px;padding:18px 30px 0;">{{ selLong }}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:18px 20px;padding:20px 30px 34px;">
+              <sc-for list="{{ selCast }}" as="c" hint-placeholder-count="8">
+                <div onClick="{{ c.go }}" role="button" tabindex="{{ c.tab }}" title="{{ c.title }}" style="background:{{ c.bg }};color:{{ c.fg }};border:4px solid #000;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:10px 20px;transform:rotate({{ c.rot }});cursor:{{ c.cur }};transition:transform .12s;" style-hover="transform:rotate(0deg) scale(1.06);">{{ c.name }}</div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+      </section>
+</x-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+// Add new days/entries here, in order. Names in NAMES become links to their character slide.
+// An entry is either 'text' or ['Time of day', 'text'] (Early Morning, Morning, Lunchtime, Afternoon, After School, Evening, Night, Late Night).
+const EVENTS = [
+  { month: 4, day: 5, weekday: 'Sunday', entries: [
+    ['Morning', 'Utako and her father arrive in Kanatajima. They settle in at her grandfather\'s house.'],
+    ['Afternoon', 'Utako encounters the Velvet Room and acquires the Chronowatch from Igor, as well as the awakened Fool Arcana.'],
+    ['Evening', 'Kyosuke and Tetsuo arrive and meet Utako after years of absence.']
+  ], introduced: ['Utako', 'Motoshige', 'Mari', 'Igor', 'Agatha', 'Safie', 'Kyosuke', 'Tetsuo'] },
+  { month: 4, day: 6, weekday: 'Monday', entries: [
+    ['Morning', 'Shou oversleeps and misses the bus, leaving Sayaka waiting at the stop for thirty minutes.'],
+    ['Morning', 'Sayaka comes to retrieve Shou from his apartment, and he breaks up with her on the way out.']
+  ], introduced: ['Shou', 'Sayaka'] }
+];
+const NAMES = { Utako: 'Character: Utako Yamanashi', Igor: 'Character: Igor', Tetsuo: 'Character: Tetsuo Yamanashi', Motoshige: 'Character: Motoshige Yamanashi', Agatha: 'Character: Agatha', Safie: 'Character: Safie', Shou: 'Character: Shou Satake', Sayaka: 'Character: Sayaka Kakureya' };
+const NIGHT = /night|dark hour|midnight/i, EVE = /evening|dusk/i;
+const timeStyle = t => NIGHT.test(t) ? { tBg: '#000', tFg: '#fff', tBd: '#fff', tSh: '#ff4f00' } : EVE.test(t) ? { tBg: '#ff4f00', tFg: '#000', tBd: '#000', tSh: '#fff' } : { tBg: '#fff', tFg: '#000', tBd: '#fff', tSh: '#ff4f00' };
+const WD = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const ord = n => n + ([, 'st', 'nd', 'rd'][(n % 100 >> 3 ^ 1) && n % 10] || 'th');
+class Component extends DCLogic {
+  componentDidMount() {
+    this.onKey = e => { const el = e.target; if ((e.key === 'Enter' || e.key === ' ') && el?.getAttribute?.('role') === 'button' && el.closest('deck-stage')) { e.preventDefault(); e.stopPropagation(); el.click(); } };
+    document.addEventListener('keydown', this.onKey, true);
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    setTimeout(() => [...(document.querySelector('[data-anim="list"]')?.children || [])].forEach((el, i) => el.animate([{ transform: 'translateX(-60px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 320, delay: 60 + i * 90, easing: 'cubic-bezier(.16,1.25,.3,1)', fill: 'backwards' })), 50);
+  }
+  componentWillUnmount() { document.removeEventListener('keydown', this.onKey, true); }
+  renderVals() {
+    const go = label => () => { location.href = 'Characters.dc.html?slide=' + encodeURIComponent(label); };
+    const re = new RegExp('\\b(' + Object.keys(NAMES).join('|') + ')\\b');
+    const parts = text => text.split(re).filter(Boolean).map(t => NAMES[t] ? { t, link: true, plain: false, go: go(NAMES[t]), title: NAMES[t].slice(11) } : { t, link: false, plain: true });
+    const ROT = ['-1deg', '0.8deg', '-0.5deg', '1.2deg'];
+    let n = 0;
+    const days = EVENTS.map((d, i) => ({
+      md: d.month + '/' + d.day,
+      wd: d.weekday.slice(0, 3).toUpperCase(),
+      wdBg: d.weekday === 'Sunday' ? '#ff4f00' : '#fff', wdFg: '#000',
+      long: (d.weekday + ', ' + MONTHS[d.month - 1] + ' ' + ord(d.day)).toUpperCase(),
+      today: i === EVENTS.length - 1,
+      cast: (d.introduced || []).map((nm, k) => { const l = NAMES[nm]; return { name: nm.toUpperCase(), title: l ? l.slice(11) : nm, go: l ? go(l) : () => {}, tab: l ? '0' : '-1', cur: l ? 'pointer' : 'default', bg: l ? '#000' : '#fff', fg: l ? '#fff' : '#000', rot: ['-2deg', '1.5deg', '-1deg', '2deg'][k % 4] }; }),
+      entries: d.entries.map(x => { const [time, t] = Array.isArray(x) ? x : ['', x]; n++; return { time: time.toUpperCase(), hasTime: !!time, noTime: !time, ...timeStyle(time), n: String(n).padStart(2, '0'), rot: ROT[(n - 1) % 4], just: n % 2 ? 'flex-start' : 'flex-end', parts: parts(t) }; })
+    }));
+    const cur = days[days.length - 1];
+    const sel = this.state?.sel ?? days.length - 1;
+    const sd = days[sel];
+    const first = EVENTS[0];
+    const week = WD.map((wd, k) => {
+      const day = first.day + k;
+      const idx = EVENTS.findIndex(x => x.month === first.month && x.day === day);
+      const has = idx >= 0, on = idx === sel;
+      return { wd, day, dots: has ? '●'.repeat(Math.min(EVENTS[idx].entries.length, 3)) : '',
+        bg: on ? '#fff' : '#000', fg: on ? '#000' : '#fff', bd: on ? '#000' : '#fff',
+        sh: on ? '10px 10px 0 #000' : 'none', tf: on ? 'translateY(-14px) rotate(-3deg) scale(1.06)' : 'none',
+        op: has ? 1 : .35, cur: has ? 'pointer' : 'default', tab: has ? '0' : '-1',
+        pick: () => { if (has) this.setState({ sel: idx, castOpen: false }); } };
+    });
+    return { days, week, curMd: cur.md, curWd: cur.wd, curLong: cur.long,
+      selLong: sd.long, selToday: sd.today, selEntries: sd.entries, selEmpty: !sd.entries.length, selCast: sd.cast, selHasCast: sd.cast.length > 0, selCastCount: String(sd.cast.length),
+      castOpen: !!this.state?.castOpen && sd.cast.length > 0,
+      toggleCast: () => this.setState(s => ({ castOpen: !s?.castOpen })), closeCast: () => this.setState({ castOpen: false }),
+      hWheel: ev => { ev.stopPropagation(); ev.currentTarget.scrollLeft += ev.deltaY; },
+      stopWheel: e => e.stopPropagation(),
+      goHome: () => { location.href = 'Characters.dc.html'; } };
+  }
+}
+
+</script>
+</body>
+</html>

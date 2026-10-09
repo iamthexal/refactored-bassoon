@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Lore · Persona: Mirage</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<style>
+@font-face{font-family:"Archivo Narrow";font-weight:400 700;font-display:swap;src:url("assets/fonts/archivo-narrow-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Archivo Narrow";font-weight:400 700;font-display:swap;src:url("assets/fonts/archivo-narrow-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"P5Menu";src:url("assets/fonts/p5-menu.ttf") format("truetype");font-display:swap;}
+body{margin:0;background:#000;}
+a{color:#ff4f00;}a:hover{color:#ff4f00;text-decoration-thickness:3px;}
+</style>
+<script src="./deck-stage-p5.js"></script>
+</helmet>
+<x-import component-from-global-scope="deck-stage" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+
+<!-- ================================================================
+     LORE TITLE / INDEX
+     ================================================================ -->
+<section data-label="Lore: Title" data-screen-label="01 Lore" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+  <div data-anim="R" style="position:absolute;left:700px;top:0;width:1220px;height:1080px;clip-path:polygon(26% 0,100% 0,100% 100%,0 100%);overflow:hidden;">
+    <div style="position:absolute;inset:0;background:url('assets/backgrounds/city.jpg') center bottom/cover no-repeat;filter:grayscale(1) contrast(1.35) brightness(1.1);"></div>
+    <div style="position:absolute;inset:0;background:#ff4f00;mix-blend-mode:multiply;"></div>
+  </div>
+  <div data-anim="drop" style="position:absolute;left:842px;top:-40px;width:36px;height:1160px;background:#fff;transform:skewX(-16.4deg);"></div>
+  <div style="position:absolute;left:-40px;top:700px;font-family:'P5Menu',sans-serif;font-size:380px;line-height:1;color:transparent;-webkit-text-stroke:3px #222;transform:rotate(-8deg);white-space:nowrap;pointer-events:none;">20XX</div>
+  <div data-anim="stagL" style="position:absolute;left:90px;top:120px;display:flex;flex-direction:column;align-items:flex-start;gap:4px;transform:rotate(-6deg);transform-origin:left top;">
+    <div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:44px;line-height:1;padding:8px 22px;">THE WORLD OF</div>
+    <div style="font-family:'P5Menu',sans-serif;font-size:340px;line-height:.86;color:#ff4f00;letter-spacing:-4px;text-shadow:14px 14px 0 #fff;">LORE</div>
+  </div>
+  <div data-anim="L" style="position:absolute;left:110px;top:560px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;transform:rotate(-3deg);">
+    <div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:6px 18px;transform:rotate(-3deg);">SETTING</div>
+    <div style="background:#000;border:5px solid #fff;box-shadow:12px 12px 0 #ff4f00;padding:12px 30px;font-family:'P5Menu',sans-serif;font-size:96px;line-height:1;">IZU ISLANDS</div>
+    <div style="margin-left:200px;background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:110px;line-height:1;padding:4px 26px;transform:rotate(4deg);box-shadow:10px 10px 0 #000;">20XX</div>
+  </div>
+  <div data-anim="stagR" style="position:absolute;right:90px;top:64px;display:flex;flex-direction:column;align-items:flex-end;gap:12px;z-index:3;">
+    <div onClick="{{ toSuper }}" role="button" tabindex="0" style="background:#000;color:#ff4f00;border:4px solid #ff4f00;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:6px 22px;transform:rotate(3deg);margin-bottom:6px;cursor:pointer;transition:transform .12s;" style-hover="transform:rotate(3deg) translateX(-12px) scale(1.05);">I · SUPERNATURAL</div>
+    <div onClick="{{ goAion }}" role="button" tabindex="0" style="display:flex;transform:rotate(-2deg);cursor:pointer;box-shadow:8px 8px 0 #000;transition:transform .12s;" style-hover="transform:rotate(-2deg) translateX(-14px) scale(1.04);"><div style="background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:30px;line-height:1;padding:12px 14px;">01</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:8px 22px;">THE AION</div></div>
+    <div onClick="{{ goChronos }}" role="button" tabindex="0" style="display:flex;transform:rotate(2deg);cursor:pointer;box-shadow:8px 8px 0 #000;transition:transform .12s;" style-hover="transform:rotate(2deg) translateX(-14px) scale(1.04);"><div style="background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:30px;line-height:1;padding:12px 14px;">02</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:8px 22px;">CHRONOS</div></div>
+    <div onClick="{{ goMirages }}" role="button" tabindex="0" style="display:flex;transform:rotate(-2deg);cursor:pointer;box-shadow:8px 8px 0 #000;transition:transform .12s;" style-hover="transform:rotate(-2deg) translateX(-14px) scale(1.04);"><div style="background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:30px;line-height:1;padding:12px 14px;">03</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:8px 22px;">MIRAGES</div></div>
+    <div onClick="{{ goSurrender }}" role="button" tabindex="0" style="display:flex;transform:rotate(2deg);cursor:pointer;box-shadow:8px 8px 0 #000;transition:transform .12s;" style-hover="transform:rotate(2deg) translateX(-14px) scale(1.04);"><div style="background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:30px;line-height:1;padding:12px 14px;">04</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:8px 22px;">SURRENDER</div></div>
+    <div onClick="{{ goSafeRooms }}" role="button" tabindex="0" style="display:flex;transform:rotate(-2deg);cursor:pointer;box-shadow:8px 8px 0 #000;transition:transform .12s;" style-hover="transform:rotate(-2deg) translateX(-14px) scale(1.04);"><div style="background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:30px;line-height:1;padding:12px 14px;">05</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:8px 22px;">SAFE ROOMS</div></div>
+    <div onClick="{{ goChronowatch }}" role="button" tabindex="0" style="display:flex;transform:rotate(2deg);cursor:pointer;box-shadow:8px 8px 0 #000;transition:transform .12s;" style-hover="transform:rotate(2deg) translateX(-14px) scale(1.04);"><div style="background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:30px;line-height:1;padding:12px 14px;">06</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:8px 22px;">THE CHRONOWATCH</div></div>
+    <div onClick="{{ goSynchronicity }}" role="button" tabindex="0" style="display:flex;transform:rotate(-2deg);cursor:pointer;box-shadow:8px 8px 0 #000;transition:transform .12s;" style-hover="transform:rotate(-2deg) translateX(-14px) scale(1.04);"><div style="background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:30px;line-height:1;padding:12px 14px;">07</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:8px 22px;">SYNCHRONICITY</div></div>
+    <div onClick="{{ toKanatajima }}" role="button" tabindex="0" style="background:#000;color:#ff4f00;border:4px solid #ff4f00;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:6px 22px;transform:rotate(-3deg);margin-top:22px;margin-bottom:6px;cursor:pointer;transition:transform .12s;" style-hover="transform:rotate(-3deg) translateX(-12px) scale(1.05);">II · KANATAJIMA</div>
+    <div onClick="{{ goIsland }}" role="button" tabindex="0" style="display:flex;transform:rotate(2deg);cursor:pointer;box-shadow:8px 8px 0 #000;transition:transform .12s;" style-hover="transform:rotate(2deg) translateX(-14px) scale(1.04);"><div style="background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:30px;line-height:1;padding:12px 14px;">08</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:8px 22px;">THE ISLAND</div></div>
+    <div onClick="{{ goKanata }}" role="button" tabindex="0" style="display:flex;transform:rotate(-2deg);cursor:pointer;box-shadow:8px 8px 0 #000;transition:transform .12s;" style-hover="transform:rotate(-2deg) translateX(-14px) scale(1.04);"><div style="background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:30px;line-height:1;padding:12px 14px;">09</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:8px 22px;">KANATA</div></div>
+    <div onClick="{{ goDistricts }}" role="button" tabindex="0" style="display:flex;transform:rotate(2deg);cursor:pointer;box-shadow:8px 8px 0 #000;transition:transform .12s;" style-hover="transform:rotate(2deg) translateX(-14px) scale(1.04);"><div style="background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:30px;line-height:1;padding:12px 14px;">10</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:8px 22px;">DISTRICTS</div></div>
+  </div>
+  <div onClick="{{ goHome }}" role="button" tabindex="0" title="Back to title" style="position:absolute;left:110px;bottom:56px;display:flex;align-items:center;gap:16px;background:#000;border:4px solid #fff;box-shadow:8px 8px 0 #ff4f00;padding:10px 24px 10px 18px;cursor:pointer;transform:rotate(-3deg);transition:transform .12s;z-index:3;" style-hover="transform:rotate(-3deg) translateX(-8px) scale(1.05);">
+    <div style="display:flex;align-items:center;"><div style="width:6px;height:28px;background:#ff4f00;"></div><div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-right:22px solid #ff4f00;"></div></div>
+    <div style="font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;color:#fff;letter-spacing:1px;">TITLE</div>
+  </div>
+</section>
+
+<!-- ================================================================
+     I · SUPERNATURAL
+     ================================================================ -->
+<section data-label="Divider: Supernatural" data-screen-label="02 Supernatural" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+  <div data-anim="sweepL" style="position:absolute;left:-200px;top:-120px;width:1500px;height:1400px;background:#ff4f00;clip-path:polygon(0 0,78% 0,52% 100%,0 100%);"></div>
+  <div data-anim="dropUp" style="position:absolute;left:990px;top:0;width:40px;height:1080px;background:#fff;transform:skewX(-14deg);"></div>
+  <div data-anim="pop" style="position:absolute;left:110px;top:110px;font-family:'P5Menu',sans-serif;font-size:360px;line-height:.8;color:#000;">I</div>
+  <div data-anim="stagL" style="position:absolute;left:110px;top:470px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;transform:rotate(-4deg);">
+    <div style="font-family:'P5Menu',sans-serif;font-size:220px;line-height:.88;color:#fff;letter-spacing:-2px;text-shadow:12px 12px 0 #000;">SUPER</div>
+    <div style="margin-left:40px;background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:118px;line-height:1;padding:6px 26px;">NATURAL</div>
+  </div>
+  <div data-anim="stagR" style="position:absolute;right:90px;top:0;height:1080px;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:20px;">
+    <div onClick="{{ goAion }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:22px;transform:rotate(-2deg);cursor:pointer;transition:transform .12s;" style-hover="transform:rotate(-2deg) translateX(-14px) scale(1.04);"><div style="font-family:'P5Menu',sans-serif;font-size:44px;color:#ff4f00;">01</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:56px;line-height:1;padding:6px 20px;">THE AION</div></div>
+    <div onClick="{{ goChronos }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:22px;transform:rotate(2deg);cursor:pointer;transition:transform .12s;" style-hover="transform:rotate(2deg) translateX(-14px) scale(1.04);"><div style="font-family:'P5Menu',sans-serif;font-size:44px;color:#ff4f00;">02</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:56px;line-height:1;padding:6px 20px;">CHRONOS</div></div>
+    <div onClick="{{ goMirages }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:22px;transform:rotate(-2deg);cursor:pointer;transition:transform .12s;" style-hover="transform:rotate(-2deg) translateX(-14px) scale(1.04);"><div style="font-family:'P5Menu',sans-serif;font-size:44px;color:#ff4f00;">03</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:56px;line-height:1;padding:6px 20px;">MIRAGES</div></div>
+    <div onClick="{{ goSurrender }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:22px;transform:rotate(2deg);cursor:pointer;transition:transform .12s;" style-hover="transform:rotate(2deg) translateX(-14px) scale(1.04);"><div style="font-family:'P5Menu',sans-serif;font-size:44px;color:#ff4f00;">04</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:56px;line-height:1;padding:6px 20px;">SURRENDER</div></div>
+    <div onClick="{{ goSafeRooms }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:22px;transform:rotate(-2deg);cursor:pointer;transition:transform .12s;" style-hover="transform:rotate(-2deg) translateX(-14px) scale(1.04);"><div style="font-family:'P5Menu',sans-serif;font-size:44px;color:#ff4f00;">05</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:56px;line-height:1;padding:6px 20px;">SAFE ROOMS</div></div>
+    <div onClick="{{ goChronowatch }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:22px;transform:rotate(2deg);cursor:pointer;transition:transform .12s;" style-hover="transform:rotate(2deg) translateX(-14px) scale(1.04);"><div style="font-family:'P5Menu',sans-serif;font-size:44px;color:#ff4f00;">06</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:56px;line-height:1;padding:6px 20px;">THE CHRONOWATCH</div></div>
+    <div onClick="{{ goSynchronicity }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:22px;transform:rotate(-2deg);cursor:pointer;transition:transform .12s;" style-hover="transform:rotate(-2deg) translateX(-14px) scale(1.04);"><div style="font-family:'P5Menu',sans-serif;font-size:44px;color:#ff4f00;">07</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:56px;line-height:1;padding:6px 20px;">SYNCHRONICITY</div></div>
+  </div>
+  <div onClick="{{ goLoreHome }}" role="button" tabindex="0" title="Back to lore index" style="position:absolute;left:110px;bottom:70px;display:flex;align-items:center;gap:16px;background:#000;border:4px solid #fff;box-shadow:8px 8px 0 #fff;padding:10px 24px 10px 18px;cursor:pointer;transform:rotate(-3deg);transition:transform .12s;z-index:3;" style-hover="transform:rotate(-3deg) translateX(-8px) scale(1.05);">
+    <div style="display:flex;align-items:center;"><div style="width:6px;height:28px;background:#ff4f00;"></div><div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-right:22px solid #ff4f00;"></div></div>
+    <div style="font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;color:#fff;letter-spacing:1px;">LORE</div>
+  </div>
+</section>
+
+<!-- The Aion -->
+<section data-label="Lore: The Aion" data-screen-label="03 The Aion" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+  <div data-anim="D" style="position:absolute;left:940px;top:-40px;width:460px;height:1160px;clip-path:polygon(30% 0,100% 0,70% 100%,0 100%);overflow:hidden;transform:translateY(-36px);">
+    <div style="position:absolute;inset:0;background:url('assets/backgrounds/city.jpg') -260px center/auto 1160px no-repeat;filter:grayscale(1) contrast(1.3) brightness(1.1);"></div>
+    <div style="position:absolute;inset:0;background:#ff4f00;mix-blend-mode:multiply;"></div>
+  </div>
+  <div data-anim="U" style="position:absolute;left:1290px;top:-40px;width:460px;height:1160px;clip-path:polygon(30% 0,100% 0,70% 100%,0 100%);overflow:hidden;transform:translateY(40px);">
+    <div style="position:absolute;inset:0;background:url('assets/backgrounds/city.jpg') -760px center/auto 1160px no-repeat;filter:grayscale(1) contrast(1.6) brightness(1.05);"></div>
+  </div>
+  <div data-anim="D" style="position:absolute;left:1640px;top:-40px;width:460px;height:1160px;clip-path:polygon(30% 0,100% 0,70% 100%,0 100%);overflow:hidden;transform:translateY(-14px);">
+    <div style="position:absolute;inset:0;background:url('assets/backgrounds/city.jpg') -1180px center/auto 1160px no-repeat;filter:grayscale(1) invert(1) contrast(1.5);"></div>
+  </div>
+  <div data-anim="pop" style="position:absolute;left:1080px;top:880px;background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:48px;line-height:1;padding:6px 22px;transform:rotate(-6deg);box-shadow:10px 10px 0 #000;">PAST</div>
+  <div data-anim="pop" style="position:absolute;left:1420px;top:470px;background:#000;color:#fff;border:4px solid #fff;font-family:'P5Menu',sans-serif;font-size:48px;line-height:1;padding:6px 22px;transform:rotate(4deg);box-shadow:10px 10px 0 #ff4f00;">PRESENT</div>
+  <div data-anim="pop" style="position:absolute;left:1540px;top:130px;background:#000;color:#ff4f00;border:4px solid #ff4f00;font-family:'P5Menu',sans-serif;font-size:56px;line-height:1;padding:6px 22px;transform:rotate(-5deg);box-shadow:10px 10px 0 #000;">FUTURE</div>
+  <div data-anim="stagL" style="position:absolute;left:96px;top:72px;display:flex;align-items:center;gap:20px;transform:rotate(-4deg);transform-origin:left;z-index:5;">
+    <div onClick="{{ toSuper }}" role="button" tabindex="0" title="Back to section" style="width:60px;height:60px;flex:none;background:#000;border:4px solid #fff;box-shadow:6px 6px 0 #ff4f00;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;transition:transform .12s;" style-hover="transform:translateX(-6px) scale(1.08);"><div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-right:20px solid #ff4f00;margin-right:4px;"></div></div>
+    <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;border:4px solid #fff;">LORE / SUPERNATURAL</div>
+    <div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;transform:rotate(3deg);">01</div>
+  </div>
+  <div data-anim="stagL" style="position:absolute;left:84px;top:150px;display:flex;align-items:flex-end;gap:24px;transform:rotate(-6deg);transform-origin:left top;">
+    <div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:64px;line-height:1;padding:6px 18px;margin-bottom:40px;transform:rotate(4deg);">THE</div>
+    <div style="font-family:'P5Menu',sans-serif;font-size:250px;line-height:.86;color:#ff4f00;letter-spacing:-3px;text-shadow:12px 12px 0 #fff;">AION</div>
+  </div>
+  <div data-anim="L" style="position:absolute;left:120px;top:420px;width:780px;transform:rotate(-2deg);background:#000;border:4px solid #ff4f00;color:#fff;font-family:'P5Menu',sans-serif;font-size:36px;line-height:1.1;padding:10px 22px;text-wrap:balance;">THE COLLECTIVE UNCONSCIOUS PERCEPTION OF TIME</div>
+  <div data-anim="U" style="position:absolute;left:100px;top:520px;width:860px;background:#000;border:6px solid #fff;box-shadow:16px 16px 0 #ff4f00;padding:26px 34px;box-sizing:border-box;transform:rotate(-1deg);clip-path:polygon(0 2%,100% 0,98% 100%,1% 97%);">
+    <div style="font-size:27px;line-height:1.32;text-wrap:pretty;">The supernatural realm of this setting is known as the Aion, which represents the collective unconscious perception of time. It presents itself almost as a mirror of the real world, however, the flow of time in this realm is not linear, and it looks as though various different eras of the past, present, and future have been mashed together, inhabited by the archetypal (generic) Shadows of the human consciousness.</div>
+  </div>
+  <div data-anim="L" style="position:absolute;left:120px;top:880px;width:840px;display:flex;align-items:stretch;transform:rotate(1.5deg);">
+    <div style="flex:none;background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:80px;line-height:1;padding:10px 22px;display:flex;align-items:center;">!</div>
+    <div style="background:#ff4f00;color:#000;font-size:26px;font-weight:700;line-height:1.25;padding:16px 26px;text-wrap:pretty;">It is possible to tamper with the collective perception of time in the real world within Aion, but doing so would require the influence of powerful forces…</div>
+  </div>
+</section>
+
+<!-- Chronos -->
+<section data-label="Lore: Chronos" data-screen-label="04 Chronos" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+  <div style="position:absolute;right:-60px;bottom:-60px;font-family:'P5Menu',sans-serif;font-size:300px;line-height:1;color:transparent;-webkit-text-stroke:3px #222;transform:rotate(-8deg);white-space:nowrap;pointer-events:none;">LAYERS</div>
+  <div data-anim="pop" style="position:absolute;left:130px;top:170px;width:860px;height:860px;border-radius:50%;background:#ff4f00;box-shadow:18px 18px 0 #fff;"></div>
+  <div data-anim="pop" style="position:absolute;left:280px;top:320px;width:560px;height:560px;border-radius:50%;border:8px solid #fff;box-sizing:border-box;overflow:hidden;background:#000;">
+    <div style="position:absolute;inset:0;background:url('assets/backgrounds/city.jpg') center/cover no-repeat;filter:grayscale(1) contrast(1.3) brightness(.45);"></div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
+      <div style="font-family:'P5Menu',sans-serif;font-size:130px;line-height:.9;color:#fff;text-shadow:8px 8px 0 #000;">AION</div>
+      <div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:28px;line-height:1;padding:6px 16px;transform:rotate(-3deg);">ARCHETYPAL SHADOWS</div>
+    </div>
+  </div>
+  <div data-anim="pop" style="position:absolute;left:840px;top:666px;width:110px;height:110px;border-radius:50%;background:#000;border:6px solid #fff;box-sizing:border-box;box-shadow:6px 6px 0 #000;"></div>
+  <div data-anim="pop" style="position:absolute;left:617px;top:908px;width:70px;height:70px;border-radius:50%;background:#000;border:5px solid #fff;box-sizing:border-box;"></div>
+  <div data-anim="pop" style="position:absolute;left:243px;top:783px;width:90px;height:90px;border-radius:50%;background:#000;border:5px solid #fff;box-sizing:border-box;"></div>
+  <div data-anim="pop" style="position:absolute;left:223px;top:392px;width:60px;height:60px;border-radius:50%;background:#000;border:5px solid #fff;box-sizing:border-box;"></div>
+  <div data-anim="pop" style="position:absolute;left:698px;top:253px;width:80px;height:80px;border-radius:50%;background:#000;border:5px solid #fff;box-sizing:border-box;"></div>
+  <div data-anim="pop" style="position:absolute;left:390px;top:196px;background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:52px;line-height:1;padding:6px 22px;transform:rotate(-5deg);">CHRONOS</div>
+  <div data-anim="pop" style="position:absolute;left:800px;top:790px;background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:6px 18px;transform:rotate(6deg);box-shadow:8px 8px 0 #000;">MIRAGES</div>
+  <div data-anim="stagL" style="position:absolute;left:96px;top:72px;display:flex;align-items:center;gap:20px;transform:rotate(-4deg);transform-origin:left;z-index:5;">
+    <div onClick="{{ toSuper }}" role="button" tabindex="0" title="Back to section" style="width:60px;height:60px;flex:none;background:#000;border:4px solid #fff;box-shadow:6px 6px 0 #ff4f00;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;transition:transform .12s;" style-hover="transform:translateX(-6px) scale(1.08);"><div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-right:20px solid #ff4f00;margin-right:4px;"></div></div>
+    <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;border:4px solid #fff;">LORE / SUPERNATURAL</div>
+    <div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;transform:rotate(3deg);">02</div>
+  </div>
+  <div data-anim="stagR" style="position:absolute;left:1090px;top:120px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;transform:rotate(-5deg);transform-origin:left top;">
+    <div style="font-family:'P5Menu',sans-serif;font-size:136px;line-height:.86;color:#ff4f00;letter-spacing:-2px;text-shadow:10px 10px 0 #fff;">CHRONOS</div>
+    <div style="margin-left:50px;background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:44px;line-height:1;padding:6px 22px;transform:rotate(2deg);">THE OUTER LAYER OF AION</div>
+  </div>
+  <div data-anim="U" style="position:absolute;left:1110px;top:440px;width:740px;background:#000;border:6px solid #fff;box-shadow:16px 16px 0 #ff4f00;padding:26px 32px;box-sizing:border-box;transform:rotate(-1deg);clip-path:polygon(0 2%,100% 0,98% 100%,1% 97%);">
+    <div style="font-size:27px;line-height:1.32;text-wrap:pretty;">There exists a second, more “focused” outer layer of Aion known as Chronos, and it is here that dwells personal Shadows who make their homes in demiplanes under their control known as Mirages, which have been known to attract lesser Shadows who act under their command.</div>
+  </div>
+  <div data-anim="stagR" style="position:absolute;left:1120px;top:750px;width:740px;display:flex;flex-direction:column;gap:18px;">
+    <div style="display:flex;align-items:center;gap:18px;"><div style="flex:none;min-width:250px;white-space:nowrap;box-sizing:border-box;background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:28px;line-height:1;padding:8px 14px;transform:rotate(-2deg);">ARCHETYPAL</div><div style="font-size:24px;font-weight:700;line-height:1.2;">Generic Shadows of the human consciousness, wandering the Aion</div></div>
+    <div style="display:flex;align-items:center;gap:18px;"><div style="flex:none;min-width:250px;white-space:nowrap;box-sizing:border-box;background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:32px;line-height:1;padding:8px 14px;transform:rotate(2deg);">PERSONAL</div><div style="font-size:24px;font-weight:700;line-height:1.2;">Dwell in Chronos and rule their own Mirages</div></div>
+    <div style="display:flex;align-items:center;gap:18px;"><div style="flex:none;min-width:250px;white-space:nowrap;box-sizing:border-box;background:#000;color:#fff;border:4px solid #fff;font-family:'P5Menu',sans-serif;font-size:32px;line-height:1;padding:4px 14px;transform:rotate(-2deg);">LESSER</div><div style="font-size:24px;font-weight:700;line-height:1.2;">Drawn to Mirages; act under their command</div></div>
+  </div>
+</section>
+
+<!-- Mirages -->
+<section data-label="Lore: Mirages" data-screen-label="05 Mirages" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+  <div data-anim="sweepR" style="position:absolute;right:-200px;top:-100px;width:1100px;height:640px;background:#ff4f00;clip-path:polygon(18% 0,100% 0,100% 100%,0 100%);"></div>
+  <div style="position:absolute;left:-30px;top:560px;font-family:'P5Menu',sans-serif;font-size:420px;line-height:1;color:transparent;-webkit-text-stroke:3px #1e1e1e;transform:rotate(-6deg);white-space:nowrap;pointer-events:none;">DELUSION</div>
+  <div data-anim="stagL" style="position:absolute;left:96px;top:72px;display:flex;align-items:center;gap:20px;transform:rotate(-4deg);transform-origin:left;z-index:5;">
+    <div onClick="{{ toSuper }}" role="button" tabindex="0" title="Back to section" style="width:60px;height:60px;flex:none;background:#000;border:4px solid #fff;box-shadow:6px 6px 0 #ff4f00;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;transition:transform .12s;" style-hover="transform:translateX(-6px) scale(1.08);"><div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-right:20px solid #ff4f00;margin-right:4px;"></div></div>
+    <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;border:4px solid #fff;">LORE / SUPERNATURAL</div>
+    <div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;transform:rotate(3deg);">03</div>
+  </div>
+  <div data-anim="stagPop" style="position:absolute;left:90px;top:170px;display:flex;align-items:center;gap:8px;">
+    <div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:140px;line-height:1;padding:0 12px;transform:rotate(-6deg);box-shadow:10px 10px 0 #ff4f00;">M</div>
+    <div style="background:#000;color:#ff4f00;border:5px solid #ff4f00;font-family:'P5Menu',sans-serif;font-size:119px;line-height:1;padding:0 12px;transform:rotate(5deg) translateY(22px);">I</div>
+    <div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:154px;line-height:1;padding:0 12px;transform:rotate(-3deg);box-shadow:10px 10px 0 #fff;">R</div>
+    <div style="background:#000;color:#fff;border:5px solid #fff;font-family:'P5Menu',sans-serif;font-size:119px;line-height:1;padding:0 12px;transform:rotate(7deg) translateY(-14px);">A</div>
+    <div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:133px;line-height:1;padding:0 12px;transform:rotate(-4deg) translateY(24px);box-shadow:10px 10px 0 #000;">G</div>
+    <div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:126px;line-height:1;padding:0 12px;transform:rotate(4deg);box-shadow:10px 10px 0 #000;">E</div>
+    <div style="background:#000;color:#fff;border:5px solid #fff;font-family:'P5Menu',sans-serif;font-size:140px;line-height:1;padding:0 12px;transform:rotate(-8deg) translateY(10px);">S</div>
+  </div>
+  <div data-anim="stagR" style="position:absolute;right:90px;top:120px;display:flex;flex-direction:column;align-items:flex-end;gap:14px;z-index:2;">
+    <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:26px;line-height:1;padding:8px 16px;letter-spacing:1px;transform:rotate(2deg);">A HARMFUL RELATIONSHIP WITH TIME</div>
+    <div style="background:#fff;color:#000;border:5px solid #000;font-family:'P5Menu',sans-serif;font-size:48px;line-height:1;padding:8px 22px;transform:rotate(-3deg);box-shadow:10px 10px 0 #000;">FIGHTING AGAINST IT</div>
+    <div style="font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;color:#000;margin-right:120px;">OR</div>
+    <div style="background:#000;color:#ff4f00;border:5px solid #fff;font-family:'P5Menu',sans-serif;font-size:48px;line-height:1;padding:8px 22px;transform:rotate(2deg);box-shadow:10px 10px 0 #fff;">REFUSING TO LET GO</div>
+  </div>
+  <div data-anim="stagU" style="position:absolute;left:90px;top:510px;width:1740px;display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:44px;align-items:start;">
+    <div style="position:relative;background:#000;border:5px solid #fff;box-shadow:14px 14px 0 #ff4f00;padding:44px 30px 28px;transform:rotate(-1.5deg);">
+      <div style="position:absolute;left:-14px;top:-28px;display:flex;transform:rotate(-4deg);"><div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:6px 14px;">01</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:6px 16px;">NATURE</div></div>
+      <div style="font-size:26px;line-height:1.32;text-wrap:pretty;">Mirages are delusions which manifest as distorted demiplanes representative of the darker side of a person’s psyche in reference to a strained and harmful relationship with time as a concept, be it fighting against it or refusing to let go of it.</div>
+    </div>
+    <div style="position:relative;background:#000;border:5px solid #fff;box-shadow:14px 14px 0 #ff4f00;padding:44px 30px 28px;transform:rotate(1deg);margin-top:40px;">
+      <div style="position:absolute;left:-14px;top:-28px;display:flex;transform:rotate(3deg);"><div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:6px 14px;">02</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:6px 16px;">TIME</div></div>
+      <div style="font-size:26px;line-height:1.32;text-wrap:pretty;">As part of Chronos, time flows more linearly within a Mirage, and they are typically shaped by things such as memories, long-lost goals, etc.</div>
+    </div>
+    <div style="position:relative;background:#000;border:5px solid #fff;box-shadow:14px 14px 0 #ff4f00;padding:44px 30px 28px;transform:rotate(-1deg);">
+      <div style="position:absolute;left:-14px;top:-28px;display:flex;transform:rotate(-3deg);"><div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:6px 14px;">03</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:6px 16px;">RULE</div></div>
+      <div style="font-size:26px;line-height:1.32;text-wrap:pretty;">Powerful Shadow counterparts to the people of whom the Mirages originate preside over them and command them with absolute authority over the lesser Shadows which may dwell there.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Surrender -->
+<section data-label="Lore: Surrender" data-screen-label="06 Surrender" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+  <div data-anim="sweepL" style="position:absolute;left:0;top:0;width:1920px;height:1080px;background:#ff4f00;clip-path:polygon(0 0,57% 0,43% 100%,0 100%);"></div>
+  <div data-anim="drop" style="position:absolute;left:944px;top:-40px;width:34px;height:1160px;background:#fff;transform:skewX(-14deg);"></div>
+  <div data-anim="stagL" style="position:absolute;left:96px;top:72px;display:flex;align-items:center;gap:20px;transform:rotate(-4deg);transform-origin:left;z-index:5;">
+    <div onClick="{{ toSuper }}" role="button" tabindex="0" title="Back to section" style="width:60px;height:60px;flex:none;background:#000;border:4px solid #fff;box-shadow:6px 6px 0 #000;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;transition:transform .12s;" style-hover="transform:translateX(-6px) scale(1.08);"><div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-right:20px solid #ff4f00;margin-right:4px;"></div></div>
+    <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;border:4px solid #fff;">LORE / SUPERNATURAL</div>
+    <div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;transform:rotate(3deg);">04</div>
+  </div>
+  <div data-anim="stagL" style="position:absolute;left:90px;top:220px;display:flex;flex-direction:column;align-items:flex-start;gap:8px;transform:rotate(-5deg);transform-origin:left top;">
+    <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:48px;line-height:1;padding:6px 20px;">FORCE IT TO</div>
+    <div style="font-family:'P5Menu',sans-serif;font-size:118px;line-height:.9;color:#000;letter-spacing:-2px;text-shadow:8px 8px 0 #fff;">SURRENDER</div>
+  </div>
+  <div data-anim="L" style="position:absolute;left:100px;top:480px;width:700px;background:#fff;color:#000;border:6px solid #000;box-shadow:14px 14px 0 #000;padding:26px 32px;box-sizing:border-box;transform:rotate(-1.5deg);">
+    <div style="font-size:30px;font-weight:700;line-height:1.28;text-wrap:pretty;">The only way to make a Mirage disappear for good is to confront the Shadow and force it to surrender itself to the flow of time.</div>
+  </div>
+  <div data-anim="L" style="position:absolute;left:130px;top:720px;display:flex;align-items:center;gap:16px;transform:rotate(2deg);">
+    <div style="width:0;height:0;border-top:20px solid transparent;border-bottom:20px solid transparent;border-left:32px solid #000;"></div>
+    <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:44px;line-height:1;padding:10px 22px;">THE MIRAGE FADES</div>
+  </div>
+  <div data-anim="stagR" style="position:absolute;left:1110px;top:110px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;">
+    <div style="background:#000;color:#ff4f00;border:4px solid #ff4f00;font-family:'P5Menu',sans-serif;font-size:44px;line-height:1;padding:6px 20px;transform:rotate(4deg);">NEVER</div>
+    <div style="position:relative;font-family:'P5Menu',sans-serif;font-size:220px;line-height:.9;color:#fff;letter-spacing:-2px;transform:rotate(-4deg);">KILL<div style="position:absolute;left:-20px;right:-30px;top:44%;height:26px;background:#ff4f00;transform:rotate(-8deg);box-shadow:6px 6px 0 #000;"></div></div>
+  </div>
+  <div data-anim="R" style="position:absolute;left:1120px;top:410px;background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:58px;line-height:1;padding:8px 24px;transform:rotate(-2deg);box-shadow:10px 10px 0 #fff;">TEMPORAL CATATONIA</div>
+  <div data-anim="R" style="position:absolute;left:1120px;top:520px;width:740px;font-size:26px;line-height:1.35;text-wrap:pretty;">The Shadow must be forced to surrender; as killing it will cause its real-world counterpart entering a state of “temporal catatonia”, losing their relationship with time altogether and no longer experiencing things such as aging, growth, the forming of memories, hope, or even the passage of time. They may sit motionless or repeat the same few moments indefinitely.</div>
+  <div data-anim="stagR" style="position:absolute;left:1120px;top:800px;width:760px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 30px;">
+    <div style="font-family:'P5Menu',sans-serif;font-size:56px;line-height:1.1;color:#fff;text-decoration:line-through;text-decoration-color:#ff4f00;text-decoration-thickness:8px;">AGING</div>
+    <div style="font-family:'P5Menu',sans-serif;font-size:56px;line-height:1.1;color:#fff;text-decoration:line-through;text-decoration-color:#ff4f00;text-decoration-thickness:8px;">GROWTH</div>
+    <div style="font-family:'P5Menu',sans-serif;font-size:56px;line-height:1.1;color:#fff;text-decoration:line-through;text-decoration-color:#ff4f00;text-decoration-thickness:8px;">MEMORIES</div>
+    <div style="font-family:'P5Menu',sans-serif;font-size:56px;line-height:1.1;color:#fff;text-decoration:line-through;text-decoration-color:#ff4f00;text-decoration-thickness:8px;">HOPE</div>
+    <div style="font-family:'P5Menu',sans-serif;font-size:56px;line-height:1.1;color:#fff;text-decoration:line-through;text-decoration-color:#ff4f00;text-decoration-thickness:8px;">TIME</div>
+  </div>
+  <div data-anim="U" style="position:absolute;left:-200px;top:976px;width:2400px;background:#000;border-top:5px solid #fff;border-bottom:5px solid #fff;transform:rotate(-1.5deg);overflow:hidden;padding:10px 0;">
+    <div data-loop="marquee" style="display:flex;width:max-content;gap:40px;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;white-space:nowrap;">
+      <div style="color:#fff;">THE SAME FEW MOMENTS</div><div style="color:#ff4f00;">·</div><div style="color:#ff4f00;">THE SAME FEW MOMENTS</div><div style="color:#ff4f00;">·</div>
+      <div style="color:#fff;">THE SAME FEW MOMENTS</div><div style="color:#ff4f00;">·</div><div style="color:#ff4f00;">THE SAME FEW MOMENTS</div><div style="color:#ff4f00;">·</div>
+      <div style="color:#fff;">THE SAME FEW MOMENTS</div><div style="color:#ff4f00;">·</div><div style="color:#ff4f00;">THE SAME FEW MOMENTS</div><div style="color:#ff4f00;">·</div>
+      <div style="color:#fff;">THE SAME FEW MOMENTS</div><div style="color:#ff4f00;">·</div><div style="color:#ff4f00;">THE SAME FEW MOMENTS</div><div style="color:#ff4f00;">·</div>
+    </div>
+  </div>
+</section>
+
+<!-- Safe Rooms -->
+<section data-label="Lore: Safe Rooms" data-screen-label="07 Safe Rooms" style="background:#fff;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#000;">
+  <div style="position:absolute;left:-40px;top:640px;font-family:'P5Menu',sans-serif;font-size:400px;line-height:1;color:transparent;-webkit-text-stroke:3px #e4e4e4;transform:rotate(-6deg);white-space:nowrap;pointer-events:none;">LAPSE</div>
+  <div data-anim="R" style="position:absolute;left:1010px;top:90px;width:800px;height:880px;transform:rotate(3deg);border:10px solid #000;box-shadow:22px 22px 0 #ff4f00;overflow:hidden;box-sizing:border-box;background:#000;">
+    <div style="position:absolute;inset:0;background:url('assets/backgrounds/city.jpg') 40% center/cover no-repeat;filter:grayscale(1) contrast(1.35) brightness(1.1);"></div>
+    <div style="position:absolute;inset:0;background:#ff4f00;mix-blend-mode:multiply;"></div>
+  </div>
+  <div data-anim="pop" style="position:absolute;left:1340px;top:860px;background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:44px;line-height:1;padding:10px 22px;transform:rotate(-4deg);box-shadow:10px 10px 0 #fff;">THE AION SEEPS IN</div>
+  <div data-anim="stagL" style="position:absolute;left:96px;top:72px;display:flex;align-items:center;gap:20px;transform:rotate(-4deg);transform-origin:left;z-index:5;">
+    <div onClick="{{ toSuper }}" role="button" tabindex="0" title="Back to section" style="width:60px;height:60px;flex:none;background:#000;border:4px solid #000;box-shadow:6px 6px 0 #ff4f00;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;transition:transform .12s;" style-hover="transform:translateX(-6px) scale(1.08);"><div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-right:20px solid #ff4f00;margin-right:4px;"></div></div>
+    <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;border:4px solid #000;">LORE / SUPERNATURAL</div>
+    <div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;transform:rotate(3deg);">05</div>
+  </div>
+  <div data-anim="stagL" style="position:absolute;left:84px;top:160px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;transform:rotate(-5deg);transform-origin:left top;">
+    <div style="font-family:'P5Menu',sans-serif;font-size:260px;line-height:.86;color:#000;letter-spacing:-3px;text-shadow:12px 12px 0 #ff4f00;">SAFE</div>
+    <div style="margin-left:90px;background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:130px;line-height:1;padding:4px 28px;transform:rotate(3deg);">ROOMS</div>
+  </div>
+  <div data-anim="L" style="position:absolute;left:110px;top:580px;width:820px;transform:rotate(-1deg);display:flex;flex-direction:column;align-items:flex-start;gap:24px;">
+    <div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:8px 20px;transform:rotate(-2deg);">A TEMPORAL LAPSE</div>
+    <div style="font-size:34px;font-weight:700;line-height:1.3;text-wrap:pretty;">There can also be found temporal lapses within a Mirage where the Aion seeps in, creating a Safe Room that the Shadows there cannot perceive.</div>
+    <div style="display:flex;align-items:center;gap:14px;transform:rotate(2deg);"><div style="width:22px;height:22px;background:#ff4f00;transform:rotate(45deg);"></div><div style="font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;">UNSEEN BY SHADOWS</div></div>
+  </div>
+</section>
+
+<!-- The Chronowatch -->
+<section data-label="Lore: Chronowatch" data-screen-label="08 Chronowatch" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+  <div data-anim="sweepR" style="position:absolute;right:-160px;top:-120px;width:1300px;height:1400px;background:#ff4f00;clip-path:polygon(34% 0,100% 0,100% 100%,0 100%);"></div>
+  <div data-anim="drop" style="position:absolute;left:1010px;top:0;width:36px;height:1080px;background:#fff;transform:skewX(-14deg);"></div>
+  <div data-anim="pop" style="position:absolute;left:1060px;top:180px;width:760px;height:760px;border-radius:50%;border:6px solid #000;box-sizing:border-box;"></div>
+  <div data-anim="pop" style="position:absolute;left:1100px;top:220px;width:680px;height:680px;border-radius:50%;background:#0a0a0a;border:12px solid #fff;box-sizing:border-box;box-shadow:18px 18px 0 #000;">
+    <div style="position:absolute;inset:0;transform:rotate(0deg);"><div style="position:absolute;left:50%;top:18px;width:12px;height:56px;margin-left:-6px;background:#ff4f00;"></div></div>
+    <div style="position:absolute;inset:0;transform:rotate(30deg);"><div style="position:absolute;left:50%;top:18px;width:6px;height:30px;margin-left:-3px;background:#fff;"></div></div>
+    <div style="position:absolute;inset:0;transform:rotate(60deg);"><div style="position:absolute;left:50%;top:18px;width:6px;height:30px;margin-left:-3px;background:#fff;"></div></div>
+    <div style="position:absolute;inset:0;transform:rotate(90deg);"><div style="position:absolute;left:50%;top:18px;width:12px;height:56px;margin-left:-6px;background:#fff;"></div></div>
+    <div style="position:absolute;inset:0;transform:rotate(120deg);"><div style="position:absolute;left:50%;top:18px;width:6px;height:30px;margin-left:-3px;background:#fff;"></div></div>
+    <div style="position:absolute;inset:0;transform:rotate(150deg);"><div style="position:absolute;left:50%;top:18px;width:6px;height:30px;margin-left:-3px;background:#fff;"></div></div>
+    <div style="position:absolute;inset:0;transform:rotate(180deg);"><div style="position:absolute;left:50%;top:18px;width:12px;height:56px;margin-left:-6px;background:#fff;"></div></div>
+    <div style="position:absolute;inset:0;transform:rotate(210deg);"><div style="position:absolute;left:50%;top:18px;width:6px;height:30px;margin-left:-3px;background:#fff;"></div></div>
+    <div style="position:absolute;inset:0;transform:rotate(240deg);"><div style="position:absolute;left:50%;top:18px;width:6px;height:30px;margin-left:-3px;background:#fff;"></div></div>
+    <div style="position:absolute;inset:0;transform:rotate(270deg);"><div style="position:absolute;left:50%;top:18px;width:12px;height:56px;margin-left:-6px;background:#fff;"></div></div>
+    <div style="position:absolute;inset:0;transform:rotate(300deg);"><div style="position:absolute;left:50%;top:18px;width:6px;height:30px;margin-left:-3px;background:#fff;"></div></div>
+    <div style="position:absolute;inset:0;transform:rotate(330deg);"><div style="position:absolute;left:50%;top:18px;width:6px;height:30px;margin-left:-3px;background:#fff;"></div></div>
+    <div style="position:absolute;left:0;right:0;top:92px;text-align:center;font-family:'P5Menu',sans-serif;font-size:56px;line-height:1;color:#ff4f00;">XII</div>
+    <div style="position:absolute;right:92px;top:50%;transform:translateY(-50%);font-family:'P5Menu',sans-serif;font-size:56px;line-height:1;">III</div>
+    <div style="position:absolute;left:0;right:0;bottom:92px;text-align:center;font-family:'P5Menu',sans-serif;font-size:56px;line-height:1;">VI</div>
+    <div style="position:absolute;left:92px;top:50%;transform:translateY(-50%);font-family:'P5Menu',sans-serif;font-size:56px;line-height:1;">IX</div>
+    <div data-anim="spin" style="position:absolute;inset:0;transform:rotate(300deg);"><div style="position:absolute;left:50%;bottom:50%;width:22px;height:180px;margin-left:-11px;background:#fff;box-shadow:5px 5px 0 #000;"></div></div>
+    <div data-anim="spin" style="position:absolute;inset:0;transform:rotate(48deg);"><div style="position:absolute;left:50%;bottom:50%;width:14px;height:258px;margin-left:-7px;background:#ff4f00;box-shadow:5px 5px 0 #000;"></div></div>
+    <div data-loop="second" style="position:absolute;inset:0;"><div style="position:absolute;left:50%;bottom:calc(50% - 44px);width:4px;height:330px;margin-left:-2px;background:#fff;"></div></div>
+    <div style="position:absolute;left:50%;top:50%;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:#ff4f00;border:6px solid #000;box-sizing:border-box;"></div>
+  </div>
+  <div data-anim="stagL" style="position:absolute;left:96px;top:72px;display:flex;align-items:center;gap:20px;transform:rotate(-4deg);transform-origin:left;z-index:5;">
+    <div onClick="{{ toSuper }}" role="button" tabindex="0" title="Back to section" style="width:60px;height:60px;flex:none;background:#000;border:4px solid #fff;box-shadow:6px 6px 0 #ff4f00;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;transition:transform .12s;" style-hover="transform:translateX(-6px) scale(1.08);"><div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-right:20px solid #ff4f00;margin-right:4px;"></div></div>
+    <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;border:4px solid #fff;">LORE / SUPERNATURAL</div>
+    <div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;transform:rotate(3deg);">06</div>
+  </div>
+  <div data-anim="stagL" style="position:absolute;left:84px;top:150px;display:flex;flex-direction:column;align-items:flex-start;gap:8px;transform:rotate(-6deg);transform-origin:left top;">
+    <div style="font-family:'P5Menu',sans-serif;font-size:210px;line-height:.86;color:#ff4f00;letter-spacing:-2px;text-shadow:10px 10px 0 #fff;">CHRONO</div>
+    <div style="margin-left:70px;background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:110px;line-height:1;padding:4px 26px;transform:rotate(2deg);">WATCH</div>
+  </div>
+  <div data-anim="U" style="position:absolute;left:110px;top:540px;width:820px;background:#000;border:6px solid #fff;box-shadow:16px 16px 0 #ff4f00;padding:28px 36px;box-sizing:border-box;transform:rotate(-1deg);clip-path:polygon(0 2%,100% 0,98% 100%,1% 97%);">
+    <div style="font-size:30px;line-height:1.3;text-wrap:pretty;">The only way to enter either of these realms is through a Chronowatch. By simply synchronizing the Chronowatch, the wearer can enter the Aion at any moment from just about any location.</div>
+  </div>
+  <div data-anim="L" onClick="{{ sync }}" role="button" tabindex="0" title="Synchronize — enter the Aion" style="position:absolute;left:130px;top:830px;display:flex;align-items:center;gap:18px;background:#ff4f00;color:#000;border:5px solid #000;box-shadow:10px 10px 0 #fff;padding:12px 26px;font-family:'P5Menu',sans-serif;font-size:52px;line-height:1;cursor:pointer;transform:rotate(-3deg);transition:transform .12s;" style-hover="transform:rotate(0deg) translateX(10px) scale(1.05);">
+    <div>SYNCHRONIZE</div>
+    <div style="width:0;height:0;border-top:18px solid transparent;border-bottom:18px solid transparent;border-left:28px solid #000;"></div>
+  </div>
+</section>
+
+<!-- Synchronicity -->
+<section data-label="Lore: Synchronicity" data-screen-label="09 Synchronicity" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+  <div data-anim="L" style="position:absolute;left:110px;top:370px;width:560px;height:560px;border-radius:50%;border:8px solid #fff;box-sizing:border-box;overflow:hidden;z-index:1;">
+    <div style="position:absolute;inset:0;background:url('assets/backgrounds/city.jpg') 30% center/cover no-repeat;filter:grayscale(1) contrast(1.35) brightness(1.05);"></div>
+  </div>
+  <div data-anim="R" style="position:absolute;left:470px;top:370px;width:560px;height:560px;border-radius:50%;border:8px solid #ff4f00;background:#0a0a0a;box-sizing:border-box;z-index:2;"></div>
+  <div data-anim="pop" style="position:absolute;left:110px;top:370px;width:560px;height:560px;border-radius:50%;overflow:hidden;z-index:3;">
+    <div style="position:absolute;left:360px;top:0;width:560px;height:560px;border-radius:50%;background:#ff4f00;"></div>
+  </div>
+  <div data-anim="pop" style="position:absolute;left:150px;top:620px;background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:8px 18px;transform:rotate(-6deg);box-shadow:8px 8px 0 #000;z-index:4;">REAL WORLD</div>
+  <div data-anim="pop" style="position:absolute;left:720px;top:616px;font-family:'P5Menu',sans-serif;font-size:72px;line-height:1;color:#ff4f00;transform:rotate(5deg);z-index:4;">MIRAGE</div>
+  <div data-anim="pop" style="position:absolute;left:442px;top:790px;background:#000;color:#fff;border:4px solid #fff;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:8px 18px;transform:rotate(-8deg);box-shadow:8px 8px 0 #ff4f00;z-index:4;">POINT OF SYNC</div>
+  <div data-anim="stagL" style="position:absolute;left:96px;top:72px;display:flex;align-items:center;gap:20px;transform:rotate(-4deg);transform-origin:left;z-index:5;">
+    <div onClick="{{ toSuper }}" role="button" tabindex="0" title="Back to section" style="width:60px;height:60px;flex:none;background:#000;border:4px solid #fff;box-shadow:6px 6px 0 #ff4f00;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;transition:transform .12s;" style-hover="transform:translateX(-6px) scale(1.08);"><div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-right:20px solid #ff4f00;margin-right:4px;"></div></div>
+    <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;border:4px solid #fff;">LORE / SUPERNATURAL</div>
+    <div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;transform:rotate(3deg);">07</div>
+  </div>
+  <div data-anim="stagL" style="position:absolute;left:84px;top:150px;display:flex;align-items:flex-end;gap:20px;transform:rotate(-4deg);transform-origin:left top;">
+    <div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:52px;line-height:1;padding:6px 18px;margin-bottom:30px;transform:rotate(3deg);">POINTS OF</div>
+    <div style="font-family:'P5Menu',sans-serif;font-size:124px;line-height:.86;color:#ff4f00;letter-spacing:-2px;text-shadow:8px 8px 0 #fff;">SYNCHRONICITY</div>
+  </div>
+  <div data-anim="U" style="position:absolute;left:1100px;top:370px;width:740px;background:#000;border:6px solid #fff;box-shadow:16px 16px 0 #ff4f00;padding:26px 32px;box-sizing:border-box;transform:rotate(-1deg);clip-path:polygon(0 2%,100% 0,98% 100%,1% 97%);">
+    <div style="font-size:26px;line-height:1.32;text-wrap:pretty;">However, entering Chronos is a different process entirely, as a point of Synchronicity must be found in the real world; a point of overlap between a person’s Mirage and the real world. These could be places or objects which feed the delusions that make up the person’s Mirage.</div>
+  </div>
+  <div data-anim="stagR" style="position:absolute;left:1110px;top:690px;width:740px;display:flex;flex-direction:column;gap:20px;">
+    <div style="display:flex;align-items:center;gap:18px;transform:rotate(-1.5deg);"><div style="flex:none;width:170px;box-sizing:border-box;text-align:center;background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:38px;line-height:1;padding:10px 0;">STAND</div><div style="font-size:26px;font-weight:700;line-height:1.2;">Standing within the vicinity of a point of Synchronicity</div></div>
+    <div style="display:flex;align-items:center;gap:18px;transform:rotate(1deg);margin-left:30px;"><div style="flex:none;width:170px;box-sizing:border-box;text-align:center;background:#000;color:#fff;border:4px solid #fff;font-family:'P5Menu',sans-serif;font-size:38px;line-height:1;padding:6px 0;">SYNC</div><div style="font-size:26px;font-weight:700;line-height:1.2;">and synchronizing the Chronowatch</div></div>
+    <div style="display:flex;align-items:center;gap:18px;transform:rotate(-1deg);margin-left:60px;"><div style="flex:none;width:170px;box-sizing:border-box;text-align:center;background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:38px;line-height:1;padding:10px 0;">ENTER</div><div style="font-size:26px;font-weight:700;line-height:1.2;">will take the wearer directly to the Mirage.</div></div>
+  </div>
+</section>
+
+<!-- ================================================================
+     II · KANATAJIMA
+     ================================================================ -->
+<section data-label="Divider: Kanatajima" data-screen-label="10 Kanatajima" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+  <div style="position:absolute;inset:0;background:url('assets/backgrounds/city.jpg') center bottom/cover no-repeat;filter:grayscale(1) contrast(1.3) brightness(.55);"></div>
+  <div data-anim="sweepL" style="position:absolute;left:-200px;top:-120px;width:1500px;height:1400px;background:#ff4f00;clip-path:polygon(0 0,78% 0,52% 100%,0 100%);"></div>
+  <div data-anim="dropUp" style="position:absolute;left:990px;top:0;width:40px;height:1080px;background:#fff;transform:skewX(-14deg);"></div>
+  <div data-anim="pop" style="position:absolute;left:110px;top:110px;font-family:'P5Menu',sans-serif;font-size:360px;line-height:.8;color:#000;">II</div>
+  <div data-anim="stagL" style="position:absolute;left:110px;top:470px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;transform:rotate(-4deg);">
+    <div style="font-family:'P5Menu',sans-serif;font-size:170px;line-height:.88;color:#fff;letter-spacing:-2px;text-shadow:12px 12px 0 #000;">KANATA</div>
+    <div style="margin-left:80px;background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:150px;line-height:1;padding:6px 30px;">JIMA</div>
+  </div>
+  <div data-anim="stagR" style="position:absolute;right:90px;top:0;height:1080px;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:30px;">
+    <div onClick="{{ goIsland }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:22px;transform:rotate(-2deg);cursor:pointer;transition:transform .12s;" style-hover="transform:rotate(-2deg) translateX(-14px) scale(1.04);"><div style="font-family:'P5Menu',sans-serif;font-size:52px;color:#ff4f00;text-shadow:4px 4px 0 #000;">08</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:58px;line-height:1;padding:8px 22px;box-shadow:10px 10px 0 #000;">THE ISLAND</div></div>
+    <div onClick="{{ goKanata }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:22px;transform:rotate(2deg);cursor:pointer;transition:transform .12s;" style-hover="transform:rotate(2deg) translateX(-14px) scale(1.04);"><div style="font-family:'P5Menu',sans-serif;font-size:52px;color:#ff4f00;text-shadow:4px 4px 0 #000;">09</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:58px;line-height:1;padding:8px 22px;box-shadow:10px 10px 0 #000;">KANATA</div></div>
+    <div onClick="{{ goDistricts }}" role="button" tabindex="0" style="display:flex;align-items:center;gap:22px;transform:rotate(-2deg);cursor:pointer;transition:transform .12s;" style-hover="transform:rotate(-2deg) translateX(-14px) scale(1.04);"><div style="font-family:'P5Menu',sans-serif;font-size:52px;color:#ff4f00;text-shadow:4px 4px 0 #000;">10</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:58px;line-height:1;padding:8px 22px;box-shadow:10px 10px 0 #000;">DISTRICTS</div></div>
+  </div>
+  <div onClick="{{ goLoreHome }}" role="button" tabindex="0" title="Back to lore index" style="position:absolute;left:110px;bottom:70px;display:flex;align-items:center;gap:16px;background:#000;border:4px solid #fff;box-shadow:8px 8px 0 #fff;padding:10px 24px 10px 18px;cursor:pointer;transform:rotate(-3deg);transition:transform .12s;z-index:3;" style-hover="transform:rotate(-3deg) translateX(-8px) scale(1.05);">
+    <div style="display:flex;align-items:center;"><div style="width:6px;height:28px;background:#ff4f00;"></div><div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-right:22px solid #ff4f00;"></div></div>
+    <div style="font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;color:#fff;letter-spacing:1px;">LORE</div>
+  </div>
+</section>
+
+<!-- The Island -->
+<section data-label="Lore: Kanatajima" data-screen-label="11 The Island" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+  <div style="position:absolute;right:-80px;top:40px;font-family:'P5Menu',sans-serif;font-size:520px;line-height:1;color:transparent;-webkit-text-stroke:3px #222;transform:rotate(-6deg);white-space:nowrap;pointer-events:none;">1970</div>
+  <div data-anim="sweepR" style="position:absolute;right:-100px;bottom:-100px;width:1000px;height:520px;background:#ff4f00;clip-path:polygon(60% 0,100% 0,100% 100%,0 100%);"></div>
+  <div data-anim="stagL" style="position:absolute;left:96px;top:72px;display:flex;align-items:center;gap:20px;transform:rotate(-4deg);transform-origin:left;z-index:5;">
+    <div onClick="{{ toKanatajima }}" role="button" tabindex="0" title="Back to section" style="width:60px;height:60px;flex:none;background:#000;border:4px solid #fff;box-shadow:6px 6px 0 #ff4f00;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;transition:transform .12s;" style-hover="transform:translateX(-6px) scale(1.08);"><div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-right:20px solid #ff4f00;margin-right:4px;"></div></div>
+    <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;border:4px solid #fff;">LORE / KANATAJIMA</div>
+    <div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;transform:rotate(3deg);">08</div>
+  </div>
+  <div data-anim="stagL" style="position:absolute;left:84px;top:150px;display:flex;align-items:flex-end;gap:20px;transform:rotate(-4deg);transform-origin:left top;">
+    <div style="font-family:'P5Menu',sans-serif;font-size:190px;line-height:.86;color:#ff4f00;letter-spacing:-2px;text-shadow:10px 10px 0 #fff;">KANATAJIMA</div>
+    <div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:48px;line-height:1;padding:6px 18px;margin-bottom:24px;transform:rotate(4deg);">THE ISLAND</div>
+  </div>
+  <div data-anim="L" style="position:absolute;left:-40px;top:560px;width:2000px;height:22px;background:#fff;transform:rotate(-3deg);box-shadow:0 10px 0 #000;"></div>
+  <div data-anim="pop" style="position:absolute;left:305px;top:568px;width:70px;height:70px;border-radius:50%;background:#000;border:8px solid #fff;box-sizing:border-box;"></div>
+  <div data-anim="pop" style="position:absolute;left:900px;top:511px;width:120px;height:120px;border-radius:50%;background:#ff4f00;border:10px solid #000;box-sizing:border-box;box-shadow:10px 10px 0 #fff;"></div>
+  <div data-anim="pop" style="position:absolute;left:1545px;top:504px;width:70px;height:70px;border-radius:50%;background:#fff;border:8px solid #000;box-sizing:border-box;"></div>
+  <div data-anim="pop" style="position:absolute;left:170px;top:438px;background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:52px;line-height:1;padding:6px 20px;transform:rotate(-4deg);">LONG AGO</div>
+  <div data-anim="pop" style="position:absolute;left:820px;top:350px;font-family:'P5Menu',sans-serif;font-size:140px;line-height:1;color:#ff4f00;text-shadow:8px 8px 0 #fff;transform:rotate(-5deg);">1970s</div>
+  <div data-anim="pop" style="position:absolute;left:1470px;top:400px;background:#000;color:#fff;border:4px solid #fff;font-family:'P5Menu',sans-serif;font-size:52px;line-height:1;padding:6px 20px;transform:rotate(3deg);">20XX</div>
+  <div data-anim="stagU" style="position:absolute;left:90px;top:680px;width:1740px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px;align-items:start;">
+    <div style="background:#000;border:5px solid #fff;box-shadow:12px 12px 0 #ff4f00;padding:24px 28px;transform:rotate(-1.5deg);font-size:26px;line-height:1.32;text-wrap:pretty;">A long time ago, Kanatajima was a small volcanic island within the pacific, only a bit off the coast of Tokyo. The communities there were largely small, rural fishing villages,</div>
+    <div style="background:#ff4f00;color:#000;border:5px solid #000;box-shadow:12px 12px 0 #fff;padding:24px 28px;transform:rotate(1.5deg);font-size:34px;font-weight:700;line-height:1.25;text-wrap:pretty;">up until the 1970s where tourism began to explode.</div>
+    <div style="background:#000;border:5px solid #fff;box-shadow:12px 12px 0 #000;padding:24px 28px;transform:rotate(-1deg);font-size:26px;line-height:1.32;text-wrap:pretty;">The cities and towns began to rapidly expand to make up for this sudden boom in tourism and residency.</div>
+  </div>
+</section>
+
+<!-- Kanata -->
+<section data-label="Lore: Kanata" data-screen-label="12 Kanata" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+  <div style="position:absolute;inset:0;background:url('assets/backgrounds/city.jpg') center bottom/cover no-repeat;filter:grayscale(1) contrast(1.35) brightness(1.1);"></div>
+  <div data-anim="fade" style="position:absolute;inset:0;background:#ff4f00;mix-blend-mode:multiply;"></div>
+  <div data-anim="sweepL" style="position:absolute;left:0;top:0;width:1180px;height:1080px;background:#0a0a0a;clip-path:polygon(0 0,100% 0,72% 100%,0 100%);"></div>
+  <div data-anim="drop" style="position:absolute;left:1000px;top:-40px;width:34px;height:1160px;background:#fff;transform:skewX(-17deg);"></div>
+  <div data-anim="stagL" style="position:absolute;left:96px;top:72px;display:flex;align-items:center;gap:20px;transform:rotate(-4deg);transform-origin:left;z-index:5;">
+    <div onClick="{{ toKanatajima }}" role="button" tabindex="0" title="Back to section" style="width:60px;height:60px;flex:none;background:#000;border:4px solid #fff;box-shadow:6px 6px 0 #ff4f00;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;transition:transform .12s;" style-hover="transform:translateX(-6px) scale(1.08);"><div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-right:20px solid #ff4f00;margin-right:4px;"></div></div>
+    <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;border:4px solid #fff;">LORE / KANATAJIMA</div>
+    <div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;transform:rotate(3deg);">09</div>
+  </div>
+  <div data-anim="stagL" style="position:absolute;left:84px;top:140px;display:flex;flex-direction:column;align-items:flex-start;gap:4px;transform:rotate(-6deg);transform-origin:left top;">
+    <div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:44px;line-height:1;padding:6px 20px;margin-left:10px;">THE TOWN OF</div>
+    <div style="font-family:'P5Menu',sans-serif;font-size:270px;line-height:.86;color:#ff4f00;letter-spacing:-3px;text-shadow:12px 12px 0 #fff;">KANATA</div>
+  </div>
+  <div data-anim="L" style="position:absolute;left:110px;top:470px;display:flex;align-items:center;gap:18px;transform:rotate(-2deg);">
+    <div style="background:#000;color:#fff;border:4px solid #fff;font-family:'P5Menu',sans-serif;font-size:36px;line-height:1;padding:8px 18px;text-decoration:line-through;text-decoration-color:#ff4f00;text-decoration-thickness:6px;">FISHING VILLAGE</div>
+    <div style="width:0;height:0;border-top:16px solid transparent;border-bottom:16px solid transparent;border-left:26px solid #ff4f00;"></div>
+    <div style="background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:36px;line-height:1;padding:10px 20px;transform:rotate(3deg);">TOURIST DESTINATION</div>
+  </div>
+  <div data-anim="U" style="position:absolute;left:100px;top:580px;width:780px;background:#000;border:6px solid #fff;box-shadow:16px 16px 0 #ff4f00;padding:26px 34px;box-sizing:border-box;transform:rotate(-1deg);clip-path:polygon(0 2%,100% 0,98% 100%,1% 97%);">
+    <div style="font-size:28px;line-height:1.32;text-wrap:pretty;">One such town is Kanata, formerly one such rural fishing village that has since become a much larger urban and tourist destination. While it is still fairly rural and in the boonies, it is a place frequently visited by tourists who wish to see the tropics.</div>
+  </div>
+  <div data-anim="R" style="position:absolute;left:1180px;top:560px;width:640px;transform:rotate(3deg);">
+    <div style="position:absolute;left:-18px;top:-30px;background:#000;color:#ff4f00;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;padding:6px 18px;transform:rotate(-6deg);z-index:1;">HOWEVER…</div>
+    <div style="background:#fff;color:#000;border:6px solid #000;box-shadow:16px 16px 0 #000;padding:40px 34px 30px;font-size:36px;font-weight:700;line-height:1.25;text-wrap:pretty;">However, this expansion has also brought with it a number of problems, such as attracting problematic people with it…</div>
+  </div>
+  <div onClick="{{ goDistricts }}" role="button" tabindex="0" title="Districts of Kanata" style="position:absolute;right:70px;bottom:56px;display:flex;align-items:center;gap:16px;background:#000;color:#fff;border:4px solid #fff;box-shadow:8px 8px 0 #000;padding:10px 22px;font-family:'P5Menu',sans-serif;font-size:40px;line-height:1;cursor:pointer;transform:rotate(-3deg);transition:transform .12s;z-index:3;" style-hover="transform:rotate(-3deg) translateX(8px) scale(1.05);">
+    <div>DISTRICTS</div>
+    <div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:22px solid #ff4f00;"></div>
+  </div>
+</section>
+
+<!-- Districts -->
+<section data-label="Lore: Districts" data-screen-label="13 Districts" style="background:#0a0a0a;overflow:hidden;font-family:'Archivo Narrow','Arial Narrow',sans-serif;color:#fff;">
+  <div data-anim="sweepL" style="position:absolute;left:-100px;top:0;width:900px;height:1080px;background:#ff4f00;clip-path:polygon(0 0,100% 0,78% 100%,0 100%);"></div>
+  <div data-anim="drop" style="position:absolute;left:688px;top:-40px;width:30px;height:1160px;background:#fff;transform:skewX(-10.4deg);"></div>
+  <div data-anim="stagL" style="position:absolute;left:96px;top:72px;display:flex;align-items:center;gap:20px;transform:rotate(-4deg);transform-origin:left;z-index:5;">
+    <div onClick="{{ toKanatajima }}" role="button" tabindex="0" title="Back to section" style="width:60px;height:60px;flex:none;background:#000;border:4px solid #fff;box-shadow:6px 6px 0 #000;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;transition:transform .12s;" style-hover="transform:translateX(-6px) scale(1.08);"><div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-right:20px solid #ff4f00;margin-right:4px;"></div></div>
+    <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;border:4px solid #fff;">LORE / KANATAJIMA</div>
+    <div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:32px;padding:8px 22px;letter-spacing:2px;transform:rotate(3deg);">10</div>
+  </div>
+  <div data-anim="stagL" style="position:absolute;left:84px;top:160px;display:flex;flex-direction:column;align-items:flex-start;gap:8px;transform:rotate(-5deg);transform-origin:left top;">
+    <div style="background:#000;color:#fff;font-family:'P5Menu',sans-serif;font-size:44px;line-height:1;padding:6px 20px;">THE DISTRICTS OF</div>
+    <div style="font-family:'P5Menu',sans-serif;font-size:140px;line-height:.86;color:#fff;letter-spacing:-2px;text-shadow:10px 10px 0 #000;">KANATA</div>
+  </div>
+  <div data-anim="U" style="position:absolute;left:100px;top:470px;width:500px;height:480px;transform:rotate(-3deg);background:repeating-linear-gradient(135deg,#111 0 14px,#1b1b1b 14px 28px);border:6px solid #fff;box-shadow:14px 14px 0 #000;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+    <div style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:24px;color:#fff;letter-spacing:2px;">MAP OF KANATA</div>
+    <div style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:18px;color:#bbb;">image goes here</div>
+  </div>
+  <div data-anim="stagR" style="position:absolute;left:780px;top:150px;display:flex;flex-direction:column;align-items:flex-start;gap:46px;">
+    <div style="display:flex;align-items:center;transform:rotate(-2deg);"><div style="background:#000;color:#ff4f00;border:4px solid #fff;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:12px 12px;">01</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:52px;line-height:1;padding:8px 20px;box-shadow:10px 10px 0 #ff4f00;white-space:nowrap;">HOROTARI</div><div style="margin-left:16px;background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;padding:6px 12px;white-space:nowrap;transform:rotate(4deg) translateY(-16px);">RESIDENTIAL DISTRICT</div></div>
+    <div style="display:flex;align-items:center;transform:rotate(1.5deg);margin-left:20px;"><div style="background:#000;color:#ff4f00;border:4px solid #fff;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:12px 12px;">02</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:52px;line-height:1;padding:8px 20px;box-shadow:10px 10px 0 #ff4f00;white-space:nowrap;">NARATARI</div><div style="margin-left:16px;background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;padding:6px 12px;white-space:nowrap;transform:rotate(-4deg) translateY(-16px);">COMMERCIAL DISTRICT</div></div>
+    <div style="display:flex;align-items:center;transform:rotate(-2deg);margin-left:3px;"><div style="background:#000;color:#ff4f00;border:4px solid #fff;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:12px 12px;">03</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:52px;line-height:1;padding:8px 20px;box-shadow:10px 10px 0 #ff4f00;white-space:nowrap;">TOUKAWA</div><div style="margin-left:16px;background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;padding:6px 12px;white-space:nowrap;transform:rotate(4deg) translateY(-16px);">COMMONS</div></div>
+    <div style="display:flex;align-items:center;transform:rotate(1.5deg);margin-left:23px;"><div style="background:#000;color:#ff4f00;border:4px solid #fff;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:12px 12px;">04</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:52px;line-height:1;padding:8px 20px;box-shadow:10px 10px 0 #ff4f00;white-space:nowrap;">SHIMAINAI</div><div style="margin-left:16px;background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;padding:6px 12px;white-space:nowrap;transform:rotate(-4deg) translateY(-16px);">ENTERTAINMENT DISTRICT</div></div>
+    <div style="display:flex;align-items:center;transform:rotate(-2deg);margin-left:7px;"><div style="background:#000;color:#ff4f00;border:4px solid #fff;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:12px 12px;">05</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:52px;line-height:1;padding:8px 20px;box-shadow:10px 10px 0 #ff4f00;white-space:nowrap;">SOUGATA</div><div style="margin-left:16px;background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;padding:6px 12px;white-space:nowrap;transform:rotate(4deg) translateY(-16px);">HARBOR</div></div>
+    <div style="display:flex;align-items:center;transform:rotate(1.5deg);margin-left:27px;"><div style="background:#000;color:#ff4f00;border:4px solid #fff;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:12px 12px;">06</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:52px;line-height:1;padding:8px 20px;box-shadow:10px 10px 0 #ff4f00;white-space:nowrap;">KANATA</div><div style="margin-left:16px;background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;padding:6px 12px;white-space:nowrap;transform:rotate(-4deg) translateY(-16px);">BEACH</div></div>
+    <div style="display:flex;align-items:center;transform:rotate(-2deg);margin-left:10px;"><div style="background:#000;color:#ff4f00;border:4px solid #fff;font-family:'P5Menu',sans-serif;font-size:34px;line-height:1;padding:12px 12px;">07</div><div style="background:#fff;color:#000;font-family:'P5Menu',sans-serif;font-size:52px;line-height:1;padding:8px 20px;box-shadow:10px 10px 0 #ff4f00;white-space:nowrap;">NARASHINA</div><div style="margin-left:16px;background:#ff4f00;color:#000;font-family:'P5Menu',sans-serif;font-size:24px;line-height:1;padding:6px 12px;white-space:nowrap;transform:rotate(4deg) translateY(-16px);">HISTORICAL DISTRICT</div></div>
+  </div>
+</section>
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this.onSlide = e => this.animateSlide(e.detail.slide);
+    document.addEventListener('slidechange', this.onSlide);
+    this.onKey = e => {
+      const el = e.target;
+      if ((e.key === 'Enter' || e.key === ' ') && el?.getAttribute?.('role') === 'button' && el.closest('deck-stage')) { e.preventDefault(); e.stopPropagation(); el.click(); }
+    };
+    document.addEventListener('keydown', this.onKey, true);
+    const want = new URLSearchParams(location.search).get('slide');
+    if (want) customElements.whenDefined('deck-stage').then(() => {
+      let tries = 0;
+      const seek = () => {
+        const i = this.idx(want);
+        if (i >= 0) document.querySelector('deck-stage').goTo(i);
+        if (i >= 0 || ++tries > 40) history.replaceState(null, '', location.pathname + location.hash);
+        else this._seekT = setTimeout(seek, 50);
+      };
+      seek();
+    });
+    this.startLoops(0);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('slidechange', this.onSlide);
+    document.removeEventListener('keydown', this.onKey, true);
+    clearTimeout(this._p5t); clearTimeout(this._seekT); clearTimeout(this._loopT); clearTimeout(this._syncT);
+    (this._loops || []).forEach(a => a.cancel());
+  }
+  idx(label) { return [...document.querySelectorAll('deck-stage section[data-label]')].findIndex(s => s.dataset.label === label); }
+  startLoops(n) {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || /_snthumb=/.test(location.search)) return;
+    const m = document.querySelector('deck-stage [data-loop="marquee"]'), s = document.querySelector('deck-stage [data-loop="second"]');
+    if (!m || !s) { if (n < 80) this._loopT = setTimeout(() => this.startLoops(n + 1), 100); return; }
+    this._loops = [
+      m.animate([{ translate: '0 0' }, { translate: '-50% 0' }], { duration: 16000, iterations: Infinity }),
+      s.animate([{ rotate: '0deg' }, { rotate: '360deg' }], { duration: 60000, iterations: Infinity })
+    ];
+  }
+  animateSlide(sec) {
+    if (!sec || matchMedia('(prefers-reduced-motion: reduce)').matches || /_snthumb=/.test(location.search)) return;
+    sec.getAnimations({ subtree: true }).forEach(a => a.id === 'p5' && a.cancel());
+    const ease = 'cubic-bezier(.16,1.25,.3,1)';
+    const run = (el, frames, delay, dur = 420, easing = ease) => { if (!el) return; const a = el.animate(frames, { duration: dur, delay, easing, fill: 'backwards' }); a.id = 'p5'; };
+    const fromX = (el, x, d, dur) => run(el, [{ translate: x + 'px 0', opacity: 0 }, { translate: '0 0', opacity: 1 }], d, dur);
+    const fromY = (el, y, d, dur) => run(el, [{ translate: '0 ' + y + 'px', opacity: 0 }, { translate: '0 0', opacity: 1 }], d, dur);
+    const pop = (el, d, dur = 380) => run(el, [{ scale: 0, opacity: 0 }, { scale: 1.08, opacity: 1, offset: .7 }, { scale: 1 }], d, dur);
+    const kids = (el, fn, d0, step) => [...el.children].forEach((c, i) => fn(c, d0 + i * step));
+    clearTimeout(this._p5t);
+    this._p5t = setTimeout(() => sec.getAnimations({ subtree: true }).forEach(an => { if (an.id === 'p5' && an.playState !== 'finished') { try { an.finish(); } catch (e) { an.cancel(); } } }), 1800);
+    [...sec.querySelectorAll('[data-anim]')].forEach((el, i) => {
+      const d = Math.min(i * 60, 720);
+      switch (el.dataset.anim) {
+        case 'sweepL': return fromX(el, -1500, 0, 400);
+        case 'sweepR': return fromX(el, 1200, 0, 400);
+        case 'drop': return fromY(el, -1200, 80, 360);
+        case 'dropUp': return fromY(el, 1200, 80, 360);
+        case 'pop': return pop(el, d);
+        case 'L': return fromX(el, -700, d, 460);
+        case 'R': return fromX(el, 700, d, 460);
+        case 'U': return fromY(el, 180, d, 460);
+        case 'D': return fromY(el, -500, d, 460);
+        case 'fade': return run(el, [{ opacity: 0 }, { opacity: 1 }], 0, 300, 'ease-out');
+        case 'stagL': return kids(el, (c, t) => fromX(c, -800, t, 440), d, 80);
+        case 'stagR': return kids(el, (c, t) => fromX(c, 700, t, 420), d, 60);
+        case 'stagU': return kids(el, (c, t) => fromY(c, 200, t, 460), d, 90);
+        case 'stagPop': return kids(el, (c, t) => pop(c, t, 340), d, 60);
+        case 'spin': return run(el, [{ rotate: '-1080deg' }, { rotate: '0deg' }], 200, 1300, 'cubic-bezier(.2,.8,.2,1)');
+      }
+    });
+  }
+  renderVals() {
+    const go = label => () => { const i = this.idx(label); if (i >= 0) document.querySelector('deck-stage').goTo(i); };
+    const targets = {
+      goLoreHome: 'Lore: Title',
+      toSuper: 'Divider: Supernatural',
+      goAion: 'Lore: The Aion',
+      goChronos: 'Lore: Chronos',
+      goMirages: 'Lore: Mirages',
+      goSurrender: 'Lore: Surrender',
+      goSafeRooms: 'Lore: Safe Rooms',
+      goChronowatch: 'Lore: Chronowatch',
+      goSynchronicity: 'Lore: Synchronicity',
+      toKanatajima: 'Divider: Kanatajima',
+      goIsland: 'Lore: Kanatajima',
+      goKanata: 'Lore: Kanata',
+      goDistricts: 'Lore: Districts'
+    };
+    const handlers = Object.fromEntries(Object.entries(targets).map(([k, l]) => [k, go(l)]));
+    const sync = () => {
+      const sec = document.querySelector('deck-stage section[data-label="Lore: Chronowatch"]');
+      if (sec && !matchMedia('(prefers-reduced-motion: reduce)').matches) sec.querySelectorAll('[data-anim="spin"]').forEach((h, i) => h.animate([{ rotate: '0deg' }, { rotate: (i ? 2160 : 720) + 'deg' }], { duration: 700, easing: 'cubic-bezier(.6,0,.2,1)' }));
+      clearTimeout(this._syncT);
+      this._syncT = setTimeout(handlers.goAion, 650);
+    };
+    return { ...handlers, sync, goHome: () => { location.href = 'Characters.dc.html'; } };
+  }
+}
+</script>
+</body>
+</html>

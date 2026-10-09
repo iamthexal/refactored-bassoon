@@ -1,0 +1,9 @@
+{
+  "cleanUrls": false,
+  "rewrites": [
+    { "source": "/characters", "destination": "/Characters.dc.html" },
+    { "source": "/arcana", "destination": "/Arcana.dc.html" },
+    { "source": "/events", "destination": "/Events.dc.html" },
+    { "source": "/lore", "destination": "/Lore.dc.html" }
+  ]
+}

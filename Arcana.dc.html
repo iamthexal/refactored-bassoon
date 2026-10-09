@@ -61,7 +61,7 @@ a{color:#ff4f00;}a:hover{color:#ff4f00;text-decoration-thickness:3px;}
   </div>
   <div data-anim="deck" style="position:absolute;left:80px;top:200px;width:1000px;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:34px 24px;">
     <sc-for list="{{ arcana }}" as="a" hint-placeholder-count="30">
-      <div onClick="{{ a.click }}" onMouseEnter="{{ a.hover }}" onFocus="{{ a.hover }}" role="button" tabindex="0" title="{{ a.name }}" style="position:relative;aspect-ratio:1054/1493;transform:{{ a.transform }};z-index:{{ a.z }};transition:transform .15s;cursor:pointer;">
+      <div onClick="{{ a.click }}" onPointerEnter="{{ a.hover }}" onFocus="{{ a.hover }}" role="button" tabindex="0" title="{{ a.name }}" style="position:relative;aspect-ratio:1054/1493;transform:{{ a.transform }};z-index:{{ a.z }};transition:transform .15s;cursor:pointer;">
         <div style="position:absolute;inset:0;background:#000;border:{{ a.border }};box-shadow:{{ a.shadow }};box-sizing:border-box;overflow:hidden;filter:{{ a.filter }};">
           <img decoding="async" loading="lazy" ref="{{ a.imgRef }}" alt="{{ a.name }}" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
@@ -94,7 +94,7 @@ a{color:#ff4f00;}a:hover{color:#ff4f00;text-decoration-thickness:3px;}
 const ARCANA = [['0','THE FOOL',[['UTAKO','Character: Utako Yamanashi'],['IGOR','Character: Igor']],'fool'],['0','THE JESTER',null,'jester'],['I','THE MAGICIAN',[['SHOU','Character: Shou Satake']],'magician'],['I','THE COUNCILLOR',[['AGATHA','Character: Agatha'],['SAFIE','Character: Safie']],'councillor'],['II','THE PRIESTESS',[['AOI','Character: Aoi Tsukino']],'priestess'],['III','THE EMPRESS',[['ETSUKO','Character: Etsuko Odoriba']],'empress'],['IV','THE EMPEROR',[['KAZUMASA','Character: Kazumasa Odoriba']],'emperor'],['V','THE HIEROPHANT',[['MOTOSHIGE','Character: Motoshige Yamanashi']],'hierophant'],['V','THE APOSTLE',null,'apostle'],['VI','THE LOVERS',[['YUKINA','Character: Yukina Yoshie']],'lovers'],['VII','THE CHARIOT',[['GIKEN','Character: Giken Tsukino']],'chariot'],['VIII','JUSTICE',[['YORIKO','Character: Yoriko Mihara']],'justice'],['IX','THE HERMIT',[['KOUHEI','Character: Kouhei Inoue']],'hermit'],['X','FORTUNE',null,'fortune'],['XI','STRENGTH',[['TAKERU','Character: Takeru Magohei']],'strength'],['XI','HUNGER',null,'hunger'],['XII','THE HANGED MAN',null,'hanged-man'],['XIII','DEATH',[['DEATH','Character: Death Confidant']],'death'],['XIV','TEMPERANCE',null,'temperance'],['XV','THE DEVIL',null,'devil'],['XVI','THE TOWER',[['CHUUZENJI','Character: Chuuzenji']],'tower'],['XVII','THE STAR',[['CHESTER','Character: Chester']],'star'],['XVIII','THE MOON',[['SAYAKA','Character: Sayaka Kakureya']],'moon'],['XIX','THE SUN',null,'sun'],['XX','JUDGEMENT',null,'judgement'],['XX','AEON',null,'aeon'],['XXI','THE WORLD',null,'world'],['XXI','UNIVERSE',null,'universe'],['—','FAITH',null,'faith'],['—','HOPE',null,'hope']].map(([n, t, c, f]) => [n, t, c, f ? ((window.__resources && window.__resources['arc-' + f]) || 'assets/arcana/' + f + '.webp') : null]);
 class Component extends DCLogic {
   componentDidMount() {
-    this.onKey = e => { const el = e.target; if ((e.key === 'Enter' || e.key === ' ') && el?.getAttribute?.('role') === 'button') { e.preventDefault(); e.stopPropagation(); el.click(); } };
+    this.onKey = e => { const el = e.target; if ((e.key === 'Enter' || e.key === ' ') && el?.getAttribute?.('role') === 'button' && el.closest('deck-stage')) { e.preventDefault(); e.stopPropagation(); el.click(); } };
     document.addEventListener('keydown', this.onKey, true);
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     setTimeout(() => [...(document.querySelector('[data-anim="deck"]')?.children || [])].forEach((el, i) => el.animate([{ scale: 0, opacity: 0 }, { scale: 1.08, opacity: 1, offset: .7 }, { scale: 1 }], { duration: 300, delay: 80 + i * 16, easing: 'cubic-bezier(.16,1.25,.3,1)', fill: 'backwards' })), 50);
@@ -115,8 +115,8 @@ class Component extends DCLogic {
       filter: chars || i === sel ? 'none' : 'grayscale(.85) brightness(.6)',
       transform: i === sel ? 'translateY(-14px) scale(1.15) rotate(0deg)' : 'rotate(' + ROT[i % 11] + 'deg)',
       z: i === sel ? 5 : 1,
-      hover: setSel(i),
-      click: chars ? go(chars[0][1]) : setSel(i)
+      hover: e => { if (!e?.pointerType || e.pointerType === 'mouse') setSel(i)(); },
+      click: () => { if (chars && (this.state?.arcSel ?? 0) === i) go(chars[0][1])(); else setSel(i)(); }
     }));
     const [sNum, sName, sChars, sImg] = ARCANA[sel];
     return { goHome: () => { location.href = 'Characters.dc.html'; }, arcana, selNum: sNum, selName: sName, selImg: sImg || '', selImgRef: this._imgRef(sImg || ''),
